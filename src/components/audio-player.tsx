@@ -10,7 +10,7 @@ import {
   VolumeX,
 } from "lucide-react";
 import { LANGUAGE_LABEL, LANGUAGE_ORDER } from "@/lib/constants";
-import { formatDuration } from "@/lib/format";
+import { formatSeconds } from "@/lib/format";
 import type { Language } from "@/generated/prisma/enums";
 import { cn } from "@/lib/utils";
 
@@ -100,14 +100,13 @@ export function AudioPlayer({
         onPause={() => setPlaying(false)}
         onEnded={() => setPlaying(false)}
       />
-
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
           <p className="display text-[1.35rem] leading-tight text-[var(--color-ink)]">
             {track.title}
           </p>
           <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
-            {formatDuration(duration || track.duration)}
+            {formatSeconds(duration || track.duration)}
           </p>
         </div>
 

@@ -112,7 +112,7 @@ export function RouteForm({
       </div>
 
       {state.error && (
-        <p role="alert" className="mt-5 border-l-2 border-[var(--color-rust)] bg-[var(--color-rust)]/10 px-3 py-2 text-[0.9rem]">
+        <p role="alert" className="alert">
           {state.error}
         </p>
       )}

@@ -20,7 +20,7 @@ export function ScannerClient() {
         return;
       }
       toast.success(`Abriendo ${data.name}`);
-      router.push(`/puntos/${data.slug}`);
+      router.push(`/puntos/${data.slug}?de=qr`);
     } catch {
       toast.error("Sin conexión: no pudimos verificar el código.");
       setBuscando(false);

@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import { cn } from "@/lib/utils";
 import type { PointListItem } from "@/lib/queries";
 
 const MapCanvas = dynamic(() => import("./map-canvas"), {
@@ -24,11 +25,8 @@ export function MapShell({
   className?: string;
 }) {
   return (
-    <MapCanvas
-      points={points}
-      activeSlug={activeSlug}
-      onSelect={onSelect}
-      className={className}
-    />
+    <div className={cn("relative h-full w-full overflow-hidden", className)}>
+      <MapCanvas points={points} activeSlug={activeSlug} onSelect={onSelect} />
+    </div>
   );
 }

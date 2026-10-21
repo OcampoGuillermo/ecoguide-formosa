@@ -6,12 +6,13 @@ import { CATEGORY_LABEL } from "@/lib/constants";
 export const dynamic = "force-dynamic";
 
 export default async function AdminDashboard() {
-  const [points, published, routes, guides, pending, visits, events, recent] =
+  const [points, published, routes, guides, demoGuides, pending, visits, events, recent] =
     await Promise.all([
       prisma.pointOfInterest.count(),
       prisma.pointOfInterest.count({ where: { status: "PUBLISHED" } }),
       prisma.route.count(),
-      prisma.guideProfile.count({ where: { isVerified: true } }),
+      prisma.guideProfile.count(),
+      prisma.guideProfile.count({ where: { isDemo: true } }),
       prisma.contentSubmission.count({ where: { status: "PENDING" } }),
       prisma.visit.count(),
       prisma.analyticsEvent.count(),
@@ -25,7 +26,7 @@ export default async function AdminDashboard() {
   const cards = [
     { label: "Puntos publicados", value: published, total: points, href: "/admin/puntos" },
     { label: "Rutas", value: routes, href: "/admin/rutas" },
-    { label: "Guías verificadas", value: guides, href: "/admin/usuarios" },
+    { label: "Perfiles de guía", value: guides, total: demoGuides, href: "/admin/usuarios" },
     { label: "Cápsulas por moderar", value: pending, href: "/admin/moderacion" },
     { label: "Visitas registradas", value: visits, href: "/admin/analiticas" },
     { label: "Eventos", value: events, href: "/admin/analiticas" },

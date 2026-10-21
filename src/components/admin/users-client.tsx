@@ -14,6 +14,7 @@ export interface AdminUser {
   createdAt: string;
   isGuide: boolean;
   isVerified: boolean;
+  isDemo: boolean;
   specialties: string[];
   pointsCount: number;
 }
@@ -54,6 +55,11 @@ export function UsersClient({ users }: { users: AdminUser[] }) {
                     <span className="inline-flex items-center gap-1 text-[0.7rem] font-medium tracking-wide text-[var(--color-turq-2)] uppercase">
                       <CheckCircle2 className="size-3.5" aria-hidden="true" />
                       Verificado
+                    </span>
+                  )}
+                  {user.isDemo && (
+                    <span className="stamp text-[var(--color-rust)]">
+                      Demostración
                     </span>
                   )}
                 </p>

@@ -196,7 +196,7 @@
   /* ---- Tipografía ---- */
   .display {
     font-family: var(--font-sans);
-    font-variation-settings: "wdth" 68, "wght" 800;
+    font-variation-settings: "wdth" 62, "wght" 800;
     letter-spacing: -0.025em;
     line-height: 0.88;
     text-wrap: balance;
@@ -309,6 +309,16 @@
     box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-rust) 22%, transparent);
   }
 
+  /* Aviso de error: filete superior y lavado de tinta, nunca borde de color. */
+  .alert {
+    margin-top: 1.25rem;
+    padding: 0.5rem 0.75rem;
+    border-top: 2px solid var(--color-rust);
+    background-color: color-mix(in oklab, var(--color-rust) 9%, transparent);
+    color: var(--color-ink);
+    font-size: 0.9rem;
+  }
+
   /* ---- Etiqueta de tinta: el sello de estado ---- */
   .stamp {
     display: inline-flex;
@@ -343,6 +353,28 @@
       opacity: 1;
       transform: translateX(0);
     }
+  }
+
+  /* Desregistro: la segunda plancha entra corrida, como en un offset real. */
+  .ink-mis {
+    position: relative;
+  }
+
+  .ink-mis::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: var(--color-rust);
+    transform: translate(3px, 2px);
+    opacity: 0.55;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  /* Trama de medio tono: la pantalla del offset sobre los planos grandes. */
+  .screen {
+    background-image: url("/textures/halftone.png");
+    background-size: 8px 8px;
   }
 
   .stamp-press {
@@ -407,6 +439,23 @@
     background-color: color-mix(in oklab, var(--color-ink) 15%, transparent);
   }
 
+  /* La banda del mapa va a sangre: el bloque llega al borde de la pantalla. */
+  .bleed-left {
+    padding-left: max(0px, calc((100vw - 80rem) / 2 + 2rem));
+  }
+
+  .bleed-right {
+    padding-right: max(0px, calc((100vw - 80rem) / 2 + 2rem));
+  }
+
+  @media (max-width: 1023px) {
+    .bleed-left,
+    .bleed-right {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
   /* Contenedor de medida legible */
   .measure-wide {
     max-width: 68ch;
@@ -465,7 +514,6 @@
   color: var(--color-ink);
   border: 1px solid var(--color-ink);
   border-radius: var(--radius-plate);
-  box-shadow: 4px 4px 0 color-mix(in oklab, var(--color-ink) 16%, transparent);
 }
 
 .leaflet-popup-content {

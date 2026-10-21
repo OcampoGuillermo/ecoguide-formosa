@@ -32,7 +32,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40">
       <div className="h-1.5 w-full bg-[var(--color-ink)]" />
-      <div className="border-b border-[var(--rule)] bg-[var(--sheet)]/95 backdrop-blur-[2px]">
+      <div className="border-b border-[var(--rule)] bg-[var(--sheet)]">
         <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6 lg:px-8">
           <Link
             href="/"

@@ -127,7 +127,12 @@ export function MapExplorer({
       <div className="mt-8 grid gap-6 lg:grid-cols-12">
         <div className="lg:col-span-8">
           <div className="h-[26rem] overflow-hidden border-2 border-[var(--color-ink)] sm:h-[34rem]">
-            <MapShell points={filtered} activeSlug={activeSlug} onSelect={setActiveSlug} />
+            <MapShell
+              points={filtered}
+              activeSlug={activeSlug}
+              onSelect={setActiveSlug}
+              className="h-full"
+            />
           </div>
         </div>
 

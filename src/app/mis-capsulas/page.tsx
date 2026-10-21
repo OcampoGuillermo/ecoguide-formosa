@@ -85,7 +85,7 @@ export default async function MisCapsulasPage() {
                   </span>
                 </div>
                 {sub.reviewNote && (
-                  <p className="mt-3 border-l-2 border-[var(--rule-strong)] pl-3 text-[0.88rem] leading-relaxed text-[var(--field-soft)]">
+                  <p className="mt-3 border-t-2 border-[var(--rule-strong)] pt-2 text-[0.88rem] leading-relaxed text-[var(--field-soft)]">
                     {sub.reviewNote}
                   </p>
                 )}

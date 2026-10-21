@@ -15,6 +15,7 @@ export const metadata: Metadata = {
 
 export default async function GuiasPage() {
   const guides = await listGuides();
+  const demoCount = guides.filter((g) => g.isDemo).length;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
@@ -22,6 +23,17 @@ export default async function GuiasPage() {
         title="Guías locales"
         lead="Cada audioguía de EcoGuide tiene una voz y una persona. Estos son los guías y promotores que mantienen el contenido de la provincia: sus especialidades, sus idiomas y los puntos donde trabajan."
       />
+
+      {demoCount > 0 && (
+        <p className="mt-8 border-t-2 border-[var(--color-rust)] pt-4 text-[0.92rem] leading-relaxed text-[var(--field-soft)]">
+          <strong className="font-semibold text-[var(--color-ink)]">
+            Perfiles de demostración:
+          </strong>{" "}
+          los {demoCount} perfiles de esta lista los carga el equipo del programa
+          para mostrar cómo se ve la comunidad. Las personas reales aparecen
+          cuando comparten su material y el equipo lo verifica.
+        </p>
+      )}
 
       {guides.length === 0 ? (
         <div className="mt-10 border border-dashed border-[var(--rule-strong)] p-10 text-center">
@@ -44,6 +56,11 @@ export default async function GuiasPage() {
                       <span className="inline-flex items-center gap-1 text-[0.72rem] font-medium tracking-wide text-[var(--color-turq-2)] uppercase">
                         <CheckCircle2 className="size-3.5" aria-hidden="true" />
                         Verificado
+                      </span>
+                    )}
+                    {guide.isDemo && (
+                      <span className="stamp text-[var(--color-rust)]">
+                        Demostración
                       </span>
                     )}
                   </h2>

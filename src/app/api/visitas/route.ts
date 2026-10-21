@@ -23,6 +23,20 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Datos inválidos" }, { status: 400 });
   }
 
+  const point = await prisma.pointOfInterest.findUnique({
+    where: { id: parsed.data.pointId },
+    select: { id: true, status: true },
+  });
+  if (!point) {
+    return NextResponse.json({ error: "El punto no existe" }, { status: 404 });
+  }
+  if (point.status !== "PUBLISHED") {
+    return NextResponse.json(
+      { error: "El punto todavía no está publicado" },
+      { status: 404 },
+    );
+  }
+
   const session = await auth();
 
   const [visit] = await prisma.$transaction([

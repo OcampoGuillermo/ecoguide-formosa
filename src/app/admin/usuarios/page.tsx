@@ -7,7 +7,7 @@ export default async function AdminUsersPage() {
   const users = await prisma.user.findMany({
     orderBy: { createdAt: "desc" },
     include: {
-      profile: { select: { isVerified: true, specialties: true } },
+      profile: { select: { isVerified: true, isDemo: true, specialties: true } },
       _count: { select: { points: true } },
     },
   });
@@ -22,6 +22,7 @@ export default async function AdminUsersPage() {
         createdAt: u.createdAt.toISOString(),
         isGuide: Boolean(u.profile),
         isVerified: u.profile?.isVerified ?? false,
+        isDemo: u.profile?.isDemo ?? false,
         specialties: u.profile?.specialties ?? [],
         pointsCount: u._count.points,
       }))}

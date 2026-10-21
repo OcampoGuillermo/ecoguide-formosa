@@ -89,7 +89,7 @@ export function QrScanner({
   }, [onDetected, stop]);
 
   return (
-    <div className="grid gap-8 lg:grid-cols-2">
+    <div className="grid items-start gap-8 lg:grid-cols-2">
       <div>
         <div className="relative aspect-square overflow-hidden border-2 border-[var(--color-ink)] bg-[var(--color-ink)]">
           <video

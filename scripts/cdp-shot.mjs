@@ -106,6 +106,36 @@ await cdp.send(
 
 await cdp.send("Page.enable", {}, sessionId);
 await cdp.send("Runtime.enable", {}, sessionId);
+await cdp.send("Network.enable", {}, sessionId);
+
+// Login opcional: --login=correo:clave
+const loginArg = process.argv.find((a) => a.startsWith("--login="));
+if (loginArg) {
+  const [email, password] = loginArg.slice(8).split(":");
+  const base = new URL(url).origin;
+  await cdp.send("Page.navigate", { url: base + "/" }, sessionId);
+  await sleep(2200);
+  await cdp.send(
+    "Runtime.evaluate",
+    {
+      expression: `(async () => {
+        const { csrfToken } = await fetch('/api/auth/csrf').then(r => r.json());
+        await fetch('/api/auth/callback/credentials', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({ csrfToken, email: ${JSON.stringify(email)}, password: ${JSON.stringify(password)} })
+        });
+        return 'ok';
+      })()`,
+      awaitPromise: true,
+      returnByValue: true,
+    },
+    sessionId,
+  );
+  await sleep(1200);
+  console.log("sesion iniciada como", email);
+}
+
 await cdp.send("Page.navigate", { url }, sessionId);
 
 // espera a que la red se calme
@@ -131,6 +161,29 @@ const metrics = await cdp.send(
   sessionId,
 );
 const info = JSON.parse(metrics.result.value);
+
+// Estado del mapa, si la pagina tiene uno.
+const mapInfo = await cdp.send(
+  "Runtime.evaluate",
+  {
+    expression: `(() => {
+      const c = document.querySelector('.leaflet-container');
+      if (!c) return 'sin mapa';
+      const r = c.getBoundingClientRect();
+      const tiles = [...document.querySelectorAll('.leaflet-tile')];
+      const loaded = tiles.filter(t => t.classList.contains('leaflet-tile-loaded'));
+      return JSON.stringify({
+        w: Math.round(r.width), h: Math.round(r.height),
+        tiles: tiles.length, cargados: loaded.length,
+      });
+    })()`,
+    returnByValue: true,
+  },
+  sessionId,
+);
+if (mapInfo.result.value && mapInfo.result.value !== "sin mapa") {
+  console.log("mapa:", mapInfo.result.value);
+}
 
 const shot = await cdp.send(
   "Page.captureScreenshot",

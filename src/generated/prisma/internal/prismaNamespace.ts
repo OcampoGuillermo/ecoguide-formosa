@@ -1721,6 +1721,7 @@ export const GuideProfileScalarFieldEnum = {
   rating: 'rating',
   totalReviews: 'totalReviews',
   isVerified: 'isVerified',
+  isDemo: 'isDemo',
   verifiedAt: 'verifiedAt',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

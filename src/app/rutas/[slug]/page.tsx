@@ -140,7 +140,7 @@ export default async function RouteDetailPage({
         <aside className="lg:col-span-5">
           <div className="lg:sticky lg:top-24">
             <div className="h-72 overflow-hidden border-2 border-[var(--color-ink)]">
-              <MapShell points={points} />
+              <MapShell points={points} className="h-full" />
             </div>
             <div className="mt-6">
               <RouteProgress

@@ -23,6 +23,14 @@ export function formatDuration(minutes?: number | null) {
   return m === 0 ? `${h} h` : `${h} h ${m} min`;
 }
 
+/** Duracion de una pista de audio, que se guarda en segundos. */
+export function formatSeconds(seconds?: number | null) {
+  if (seconds == null || seconds <= 0) return "—";
+  const m = Math.floor(seconds / 60);
+  const s = Math.round(seconds % 60);
+  return m === 0 ? `${s} s` : `${m}:${String(s).padStart(2, "0")}`;
+}
+
 export function formatAltitude(meters?: number | null) {
   if (meters == null) return "—";
   return `${Math.round(meters)} m`;

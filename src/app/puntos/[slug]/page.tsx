@@ -5,9 +5,11 @@ import type { Metadata } from "next";
 import { ArrowLeft, MapPin, Mountain, Route as RouteIcon } from "lucide-react";
 import { AudioPlayer } from "@/components/audio-player";
 import { QrCode } from "@/components/qr-code";
+import { VisitRecorder } from "@/components/visit-recorder";
 import { getPointBySlug } from "@/lib/queries";
 import { CATEGORY_LABEL, DIFFICULTY_LABEL, SITE } from "@/lib/constants";
 import { formatAltitude, formatCoordinate, formatDistance } from "@/lib/format";
+import type { VisitSource } from "@/generated/prisma/enums";
 
 export const dynamic = "force-dynamic";
 
@@ -32,12 +34,18 @@ export async function generateMetadata({
 
 export default async function PointPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ de?: string }>;
 }) {
   const { slug } = await params;
+  const { de } = await searchParams;
   const point = await getPointBySlug(slug);
   if (!point || point.status !== "PUBLISHED") notFound();
+
+  const source: VisitSource =
+    de === "qr" ? "QR" : de === "ruta" ? "ROUTE" : de === "busqueda" ? "SEARCH" : "MAP";
 
   const video = point.videos[0];
   const reviews = point.reviews;
@@ -54,6 +62,7 @@ export default async function PointPage({
 
   return (
     <article className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
+      <VisitRecorder pointId={point.id} source={source} />
       <Link
         href="/mapa"
         className="label inline-flex items-center gap-2 text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--color-rust)]"
@@ -197,7 +206,6 @@ export default async function PointPage({
                       preload="none"
                       className="aspect-[9/16] w-full border border-[var(--rule-strong)] bg-[var(--color-ink)] object-cover"
                     >
-                      <track kind="captions" />
                     </video>
                   </div>
                   <figcaption className="min-w-0">
@@ -227,12 +235,16 @@ export default async function PointPage({
               </p>
               <div className="mt-5 flex items-center gap-5">
                 <div className="border border-[var(--rule-strong)] bg-white p-3">
-                  <QrCode value={`${SITE.url}/puntos/${point.slug}`} size={132} />
+                  <QrCode value={point.qrCode ?? point.slug} size={132} />
                 </div>
                 <div>
                   <p className="measure text-[0.72rem] text-[var(--field-soft)]">Código</p>
                   <p className="measure mt-1 text-[1rem] text-[var(--color-ink)]">
                     {point.qrCode ?? "—"}
+                  </p>
+                  <p className="mt-2 max-w-[15rem] text-[0.8rem] leading-relaxed text-[var(--field-soft)]">
+                    Es el mismo código que se imprime en el cartel: el escáner lo
+                    lee y abre esta ficha.
                   </p>
                 </div>
               </div>

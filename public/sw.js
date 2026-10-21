@@ -17,7 +17,7 @@ const SHELL_ASSETS = [
   "/manifest.webmanifest",
   "/icons/icon-192x192.png",
   "/icons/icon-512x512.png",
-  "/brand/badge.png",
+  "/brand/sello.png",
   "/textures/paper.png",
 ];
 
@@ -25,8 +25,10 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches
       .open(SHELL_CACHE)
-      .then((cache) => cache.addAll(SHELL_ASSETS))
-      .catch(() => undefined)
+      // Un recurso que falla no puede vaciar el precache entero.
+      .then((cache) =>
+        Promise.allSettled(SHELL_ASSETS.map((asset) => cache.add(asset))),
+      )
       .then(() => self.skipWaiting()),
   );
 });
@@ -63,9 +65,9 @@ self.addEventListener("fetch", (event) => {
   if (request.method !== "GET") return;
 
   const url = new URL(request.url);
-  if (url.origin !== self.location.origin) return;
 
-  // Tiles del mapa: primero la red, despues la cache (stale-while-revalidate)
+  // Tiles del mapa: primero la red, despues la cache (stale-while-revalidate).
+  // Son de otro origen, asi que se atienden antes del filtro de origen propio.
   if (isTile(url)) {
     event.respondWith(
       caches.open(TILES_CACHE).then(async (cache) => {
@@ -81,6 +83,8 @@ self.addEventListener("fetch", (event) => {
     );
     return;
   }
+
+  if (url.origin !== self.location.origin) return;
 
   // Audio y video: cache primero, son pesados y no cambian
   if (isMedia(url)) {
