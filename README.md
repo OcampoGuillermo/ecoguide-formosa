@@ -130,10 +130,15 @@ npm run lint
 npm run build
 python scripts/check-routes.py   # recorre todas las rutas y reporta estados
 node scripts/cdp-shot.mjs <url> <salida.png> 390 844   # captura con viewport real
+node scripts/cdp-offline.mjs                     # prueba la app sin conexión
 ```
 
 `scripts/cdp-shot.mjs` usa CDP para emular cualquier viewport (el modo `--window-size`
 de Chrome headless no baja de 504 px) y falla con código 2 si hay desborde horizontal.
+
+`scripts/cdp-offline.mjs` verifica la promesa central del producto: carga la portada,
+corta la red con `Network.emulateNetworkConditions`, recarga y comprueba que la página
+sigue renderizando desde el service worker.
 
 ---
 
