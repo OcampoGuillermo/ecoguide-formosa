@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Nocturno</title>
+<style>
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1440px;height:900px;overflow:hidden}
+  body{position:relative;background:#fff;color:#111;font-family:'Arial Narrow',Arial,Helvetica,sans-serif}
+  .sheet{position:absolute;inset:0;overflow:hidden}
+  .rule{height:2px;background:currentColor;opacity:.85}
+  .bar{background:currentColor;opacity:.82;height:11px;border-radius:1px}
+  .bar.s{height:7px;opacity:.55}
+  .bar.l{height:16px}
+
+  .sheet{background:#0A1424;color:#E8EEF6}
+  .t1{position:absolute;font-weight:800;letter-spacing:-.01em}
+  .t2{position:absolute;font-weight:600;font-size:12px;letter-spacing:.2em;text-transform:uppercase;opacity:.72}
+  .win{position:absolute;background:#FFB454;opacity:.8}
+  .sky{position:absolute;left:0;right:0;background:linear-gradient(#1C3A63,#0A1424)}
+  .refl{position:absolute;left:0;right:0;background:linear-gradient(#0A1424,#16283F)}
+
+</style></head>
+<body><div class="sheet">
+  <div class="sky" style="top:0;height:330px"></div>
+  <div class="refl" style="top:330px;height:300px"></div>
+  <div style="position:absolute;left:0;right:0;top:630px;height:270px;background:#0D1A2C"></div>
+  <div style="position:absolute;left:0;right:0;top:330px;height:2px;background:#3C5C88;opacity:.7"></div>
+  <div style="position:absolute;left:0;right:0;top:330px;height:300px;opacity:.30">
+    <svg width="1440" height="300"><g fill="#FFB454">
+      <rect x="120" y="30" width="10" height="14"/><rect x="180" y="70" width="10" height="14" opacity=".5"/>
+      <rect x="980" y="40" width="10" height="14"/><rect x="1100" y="96" width="10" height="14" opacity=".45"/>
+      <rect x="420" y="120" width="10" height="14" opacity=".35"/></g></svg></div>
+  <div class="t1" style="left:72px;top:64px;font-size:88px">Hora azul<br>sobre el r&iacute;o</div>
+  <div class="t2" style="left:72px;top:296px">23:47 &middot; lluvia</div>
+  <div class="t2" style="left:72px;top:356px">Cada banda lleva su reflejo</div>
+  <div class="t2" style="left:72px;bottom:56px">Trens, neones y el r&iacute;o duplicando cada luz</div>
+</div></body></html>
