@@ -61,7 +61,7 @@ for route in ROUTES:
     elif code >= 400:
         flag = "  <-- FALLA"
         bad += 1
-    if "Application error" in body or "__next_error__" in body:
+    if code == 200 and ("Application error" in body or "__next_error__" in body):
         flag += "  [error de render]"
         bad += 1
     print(f"{route:<44} {code}{flag}")
