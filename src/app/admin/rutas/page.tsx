@@ -22,7 +22,7 @@ export default async function AdminRoutesPage() {
 
   return (
     <div>
-      <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+      <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
         Rutas
       </h2>
 
@@ -33,7 +33,7 @@ export default async function AdminRoutesPage() {
       <ul className="mt-10 divide-y divide-[var(--rule)] border-t-2 border-[var(--color-ink)]">
         {routes.map((route) => (
           <li key={route.id} className="py-5">
-            <p className="display text-[1.25rem] text-[var(--color-ink)]">{route.name}</p>
+            <p className="display text-[1.25rem] text-[var(--field)]">{route.name}</p>
             <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
               {route.slug} · {route.theme ?? "—"} ·{" "}
               {route.difficulty ? DIFFICULTY_LABEL[route.difficulty] : "—"} ·{" "}

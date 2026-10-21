@@ -14,9 +14,9 @@ export default function PrivacidadPage() {
         lead="La plataforma no cobra, no vende datos y no pide permisos que no necesite para funcionar."
       />
 
-      <div className="measure-wide mt-10 space-y-8 leading-relaxed text-[var(--color-ink)]">
+      <div className="measure-wide mt-10 space-y-8 leading-relaxed text-[var(--field)]">
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--color-ink)]">
+          <h2 className="display text-[1.4rem] text-[var(--field)]">
             Qué guardamos
           </h2>
           <ul className="mt-3 space-y-2">
@@ -35,7 +35,7 @@ export default function PrivacidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--color-ink)]">
+          <h2 className="display text-[1.4rem] text-[var(--field)]">
             Qué no hacemos
           </h2>
           <p className="mt-3">
@@ -48,7 +48,7 @@ export default function PrivacidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--color-ink)]">
+          <h2 className="display text-[1.4rem] text-[var(--field)]">
             Ubicación y cámara
           </h2>
           <p className="mt-3">
@@ -59,7 +59,7 @@ export default function PrivacidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--color-ink)]">
+          <h2 className="display text-[1.4rem] text-[var(--field)]">
             Datos en el teléfono
           </h2>
           <p className="mt-3">

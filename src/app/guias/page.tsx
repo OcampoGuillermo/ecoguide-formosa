@@ -26,7 +26,7 @@ export default async function GuiasPage() {
 
       {demoCount > 0 && (
         <p className="mt-8 border-t-2 border-[var(--color-rust)] pt-4 text-[0.92rem] leading-relaxed text-[var(--field-soft)]">
-          <strong className="font-semibold text-[var(--color-ink)]">
+          <strong className="font-semibold text-[var(--field)]">
             Perfiles de demostración:
           </strong>{" "}
           los {demoCount} perfiles de esta lista los carga el equipo del programa
@@ -37,7 +37,7 @@ export default async function GuiasPage() {
 
       {guides.length === 0 ? (
         <div className="mt-10 border border-dashed border-[var(--rule-strong)] p-10 text-center">
-          <p className="text-[1.05rem] text-[var(--color-ink)]">
+          <p className="text-[1.05rem] text-[var(--field)]">
             Todavía no hay guías cargados.
           </p>
         </div>
@@ -46,11 +46,11 @@ export default async function GuiasPage() {
           {guides.map((guide) => (
             <li key={guide.id} className="border-t-2 border-[var(--color-ink)] pt-6">
               <div className="flex items-start gap-4">
-                <span className="grid size-14 shrink-0 place-items-center rounded-full border-2 border-[var(--color-ink)] text-[1.15rem] font-semibold text-[var(--color-ink)]">
+                <span className="grid size-14 shrink-0 place-items-center rounded-full border-2 border-[var(--color-ink)] text-[1.15rem] font-semibold text-[var(--field)]">
                   {guide.user.name?.charAt(0) ?? "G"}
                 </span>
                 <div className="min-w-0">
-                  <h2 className="flex flex-wrap items-center gap-2 text-[1.3rem] font-semibold text-[var(--color-ink)]">
+                  <h2 className="flex flex-wrap items-center gap-2 text-[1.3rem] font-semibold text-[var(--field)]">
                     {guide.user.name}
                     {guide.isVerified && (
                       <span className="inline-flex items-center gap-1 text-[0.72rem] font-medium tracking-wide text-[var(--color-turq-2)] uppercase">
@@ -90,7 +90,7 @@ export default async function GuiasPage() {
                 </div>
                 <div>
                   <dt className="label text-[var(--field-soft)]">Idiomas</dt>
-                  <dd className="mt-1.5 text-[0.9rem] text-[var(--color-ink)]">
+                  <dd className="mt-1.5 text-[0.9rem] text-[var(--field)]">
                     {guide.languages.map((l) => LANGUAGE_LABEL[l]).join(" · ")}
                   </dd>
                 </div>
@@ -102,7 +102,7 @@ export default async function GuiasPage() {
                     href={`https://wa.me/${guide.whatsapp}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-[0.9rem] font-semibold text-[var(--color-ink)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+                    className="inline-flex items-center gap-2 text-[0.9rem] font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
                   >
                     <MessageCircle className="size-4" aria-hidden="true" />
                     WhatsApp
@@ -113,7 +113,7 @@ export default async function GuiasPage() {
                     href={`https://instagram.com/${guide.instagram.replace("@", "")}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[0.9rem] text-[var(--field-soft)] underline-offset-4 transition-colors duration-150 hover:text-[var(--color-ink)] hover:underline"
+                    className="text-[0.9rem] text-[var(--field-soft)] underline-offset-4 transition-colors duration-150 hover:text-[var(--field)] hover:underline"
                   >
                     {guide.instagram}
                   </a>
@@ -125,7 +125,7 @@ export default async function GuiasPage() {
       )}
 
       <div className="mt-16 border border-[var(--rule-strong)] p-6">
-        <p className="display text-[1.3rem] text-[var(--color-ink)]">
+        <p className="display text-[1.3rem] text-[var(--field)]">
           ¿Trabajás guiding en Formosa?
         </p>
         <p className="measure-wide mt-3 leading-relaxed text-[var(--field-soft)]">
@@ -134,7 +134,7 @@ export default async function GuiasPage() {
           acá,{" "}
           <Link
             href="/registrarse"
-            className="font-semibold text-[var(--color-ink)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+            className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
           >
             creá tu cuenta
           </Link>{" "}

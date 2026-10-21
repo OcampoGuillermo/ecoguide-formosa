@@ -62,7 +62,7 @@ export function AdminPointsClient({ points }: { points: AdminPoint[] }) {
   return (
     <div>
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
           Puntos de interés
         </h2>
         <button
@@ -87,13 +87,13 @@ export function AdminPointsClient({ points }: { points: AdminPoint[] }) {
       {editing && (
         <div className="mt-6">
           <div className="mb-3 flex items-center justify-between">
-            <p className="display text-[1.25rem] text-[var(--color-ink)]">
+            <p className="display text-[1.25rem] text-[var(--field)]">
               Editando {editing.name}
             </p>
             <button
               type="button"
               onClick={() => setEditing(null)}
-              className="label text-[var(--field-soft)] hover:text-[var(--color-ink)]"
+              className="label text-[var(--field-soft)] hover:text-[var(--field)]"
             >
               Cerrar
             </button>
@@ -107,7 +107,7 @@ export function AdminPointsClient({ points }: { points: AdminPoint[] }) {
           <li key={point.id} className="py-5">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="min-w-0">
-                <p className="display text-[1.25rem] text-[var(--color-ink)]">
+                <p className="display text-[1.25rem] text-[var(--field)]">
                   {point.name}
                 </p>
                 <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">

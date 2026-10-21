@@ -74,7 +74,7 @@ export default async function PointPage({
       <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:gap-16">
         {/* ------------------------------------------------ Columna principal */}
         <div className="lg:col-span-7">
-          <h1 className="display mt-3 text-[clamp(2.25rem,6vw,4.5rem)] text-[var(--color-ink)]">
+          <h1 className="display mt-3 text-[clamp(2.25rem,6vw,4.5rem)] text-[var(--field)]">
             {point.name}
           </h1>
 
@@ -94,7 +94,7 @@ export default async function PointPage({
             ].map((item) => (
               <div key={item.label}>
                 <dt className="label text-[var(--field-soft)]">{item.label}</dt>
-                <dd className="measure mt-1.5 text-[0.8rem] text-[var(--color-ink)]">
+                <dd className="measure mt-1.5 text-[0.8rem] text-[var(--field)]">
                   {item.value}
                 </dd>
               </div>
@@ -105,7 +105,7 @@ export default async function PointPage({
             <p className="mt-5 text-[0.9rem] text-[var(--field-soft)]">{point.address}</p>
           )}
 
-          <div className="measure-wide mt-9 space-y-4 leading-relaxed text-[var(--color-ink)]">
+          <div className="measure-wide mt-9 space-y-4 leading-relaxed text-[var(--field)]">
             {point.description.split("\n\n").map((paragraph, i) => (
               <p key={i}>{paragraph}</p>
             ))}
@@ -113,7 +113,7 @@ export default async function PointPage({
 
           {/* ------------------------------------------------------ Audioguías */}
           <section className="mt-12">
-            <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+            <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
               Audioguías
             </h2>
             <p className="mt-3 max-w-lg leading-relaxed text-[var(--field-soft)]">
@@ -136,7 +136,7 @@ export default async function PointPage({
             {point.audioGuides[0]?.narrator && (
               <p className="mt-4 text-[0.88rem] text-[var(--field-soft)]">
                 Narrada por{" "}
-                <span className="font-semibold text-[var(--color-ink)]">
+                <span className="font-semibold text-[var(--field)]">
                   {point.audioGuides[0].narrator.name}
                 </span>
                 {point.audioGuides[0].narrator.profile?.isVerified && (
@@ -148,7 +148,7 @@ export default async function PointPage({
 
           {/* ----------------------------------------------------------- Reseñas */}
           <section className="mt-12">
-            <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+            <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
               Qué cuentan quienes lo visited
             </h2>
             {reviews.length > 0 ? (
@@ -156,7 +156,7 @@ export default async function PointPage({
                 {reviews.map((review) => (
                   <li key={review.id} className="py-5">
                     <div className="flex items-baseline justify-between gap-4">
-                      <p className="font-semibold text-[var(--color-ink)]">
+                      <p className="font-semibold text-[var(--field)]">
                         {review.user.name ?? "Visitante"}
                       </p>
                       <p className="measure text-[0.75rem] text-[var(--color-rust)]">
@@ -173,7 +173,7 @@ export default async function PointPage({
               </ul>
             ) : (
               <div className="mt-6 border border-dashed border-[var(--rule-strong)] p-8 text-center">
-                <p className="text-[1rem] text-[var(--color-ink)]">
+                <p className="text-[1rem] text-[var(--field)]">
                   Todavía no hay reseñas de este lugar.
                 </p>
                 <p className="mx-auto mt-2 max-w-sm text-[0.92rem] leading-relaxed text-[var(--field-soft)]">
@@ -209,7 +209,7 @@ export default async function PointPage({
                     </video>
                   </div>
                   <figcaption className="min-w-0">
-                    <p className="display text-[1.25rem] leading-tight text-[var(--color-ink)]">
+                    <p className="display text-[1.25rem] leading-tight text-[var(--field)]">
                       {video.title}
                     </p>
                     {video.description && (
@@ -226,7 +226,7 @@ export default async function PointPage({
             )}
 
             <div className="plate mt-6 p-5">
-              <p className="display text-[1.15rem] text-[var(--color-ink)]">
+              <p className="display text-[1.15rem] text-[var(--field)]">
                 Señalética del lugar
               </p>
               <p className="mt-2 text-[0.88rem] leading-relaxed text-[var(--field-soft)]">
@@ -239,7 +239,7 @@ export default async function PointPage({
                 </div>
                 <div>
                   <p className="measure text-[0.72rem] text-[var(--field-soft)]">Código</p>
-                  <p className="measure mt-1 text-[1rem] text-[var(--color-ink)]">
+                  <p className="measure mt-1 text-[1rem] text-[var(--field)]">
                     {point.qrCode ?? "—"}
                   </p>
                   <p className="mt-2 max-w-[15rem] text-[0.8rem] leading-relaxed text-[var(--field-soft)]">
@@ -252,7 +252,7 @@ export default async function PointPage({
 
             {routesThrough.length > 0 && (
               <div className="plate mt-6 p-5">
-                <p className="display flex items-center gap-2 text-[1.15rem] text-[var(--color-ink)]">
+                <p className="display flex items-center gap-2 text-[1.15rem] text-[var(--field)]">
                   <RouteIcon className="size-4" aria-hidden="true" />
                   Está en estas rutas
                 </p>
@@ -260,7 +260,7 @@ export default async function PointPage({
                   {routesThrough.map((route) => (
                     <li key={route.slug} className="py-3">
                       <Link href={`/rutas/${route.slug}`} className="group block">
-                        <span className="block font-semibold text-[var(--color-ink)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
+                        <span className="block font-semibold text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
                           {route.name}
                         </span>
                         <span className="measure mt-1 block text-[0.72rem] text-[var(--field-soft)]">

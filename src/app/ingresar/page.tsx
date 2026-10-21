@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function IngresarPage() {
   return (
     <div className="mx-auto max-w-lg px-4 py-16 sm:px-6 lg:py-24">
-      <h1 className="display text-[clamp(2.25rem,6vw,3.5rem)] text-[var(--color-ink)]">
+      <h1 className="display text-[clamp(2.25rem,6vw,3.5rem)] text-[var(--field)]">
         Ingresar
       </h1>
       <p className="mt-5 leading-relaxed text-[var(--field-soft)]">

@@ -102,7 +102,7 @@ export function AudioPlayer({
       />
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="display text-[1.35rem] leading-tight text-[var(--color-ink)]">
+          <p className="display text-[1.35rem] leading-tight text-[var(--field)]">
             {track.title}
           </p>
           <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
@@ -126,7 +126,7 @@ export function AudioPlayer({
                   "label px-2.5 py-1.5 transition-colors duration-150",
                   t.language === track.language
                     ? "bg-[var(--color-ink)] text-[var(--color-paper)]"
-                    : "text-[var(--field-soft)] hover:text-[var(--color-ink)]",
+                    : "text-[var(--field-soft)] hover:text-[var(--field)]",
                 )}
               >
                 {LANGUAGE_LABEL[t.language]}
@@ -159,7 +159,7 @@ export function AudioPlayer({
         <button
           type="button"
           onClick={() => seek(-10)}
-          className="p-2.5 text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--color-ink)]"
+          className="p-2.5 text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--field)]"
           aria-label="Retroceder 10 segundos"
         >
           <RotateCcw className="size-4" aria-hidden="true" />
@@ -181,7 +181,7 @@ export function AudioPlayer({
         <button
           type="button"
           onClick={() => seek(10)}
-          className="p-2.5 text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--color-ink)]"
+          className="p-2.5 text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--field)]"
           aria-label="Avanzar 10 segundos"
         >
           <RotateCw className="size-4" aria-hidden="true" />
@@ -190,7 +190,7 @@ export function AudioPlayer({
         <button
           type="button"
           onClick={cycleRate}
-          className="measure ml-1 px-2 py-1.5 text-[0.72rem] text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--color-ink)]"
+          className="measure ml-1 px-2 py-1.5 text-[0.72rem] text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--field)]"
           aria-label={`Velocidad de reproducción: ${rate} veces`}
         >
           {rate.toString().replace(".", ",")}×
@@ -204,7 +204,7 @@ export function AudioPlayer({
             el.muted = !el.muted;
             setMuted(el.muted);
           }}
-          className="ml-auto p-2.5 text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--color-ink)]"
+          className="ml-auto p-2.5 text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--field)]"
           aria-label={muted ? "Activar el sonido" : "Silenciar"}
         >
           {muted ? (

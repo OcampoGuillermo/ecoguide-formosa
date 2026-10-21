@@ -35,7 +35,7 @@ export default async function AdminDashboard() {
   return (
     <div className="space-y-12">
       <section>
-        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
           Estado de la plataforma
         </h2>
         <dl className="mt-6 grid gap-px border border-[var(--rule)] bg-[var(--rule)] sm:grid-cols-2 lg:grid-cols-3">
@@ -46,7 +46,7 @@ export default async function AdminDashboard() {
               className="group bg-[var(--surface)] p-5 transition-colors duration-150 hover:bg-[var(--color-paper-3)]"
             >
               <dt className="label text-[var(--field-soft)]">{card.label}</dt>
-              <dd className="measure mt-2 text-[2rem] leading-none text-[var(--color-ink)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
+              <dd className="measure mt-2 text-[2rem] leading-none text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
                 {card.value}
                 {card.total !== undefined && (
                   <span className="text-[1rem] text-[var(--field-soft)]"> / {card.total}</span>
@@ -58,7 +58,7 @@ export default async function AdminDashboard() {
       </section>
 
       <section>
-        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
           Últimas cápsulas
         </h2>
         {recent.length === 0 ? (
@@ -70,7 +70,7 @@ export default async function AdminDashboard() {
             {recent.map((sub) => (
               <li key={sub.id} className="flex flex-wrap items-baseline justify-between gap-3 py-3">
                 <span className="min-w-0">
-                  <span className="block truncate text-[0.98rem] font-semibold text-[var(--color-ink)]">
+                  <span className="block truncate text-[0.98rem] font-semibold text-[var(--field)]">
                     {sub.title}
                   </span>
                   <span className="measure text-[0.7rem] text-[var(--field-soft)]">
@@ -86,7 +86,7 @@ export default async function AdminDashboard() {
       </section>
 
       <section>
-        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
           Puntos por categoría
         </h2>
         <CategoryBreakdown />
@@ -108,7 +108,7 @@ async function CategoryBreakdown() {
       {grouped.map((g) => (
         <li key={g.category}>
           <div className="flex items-baseline justify-between gap-4">
-            <span className="text-[0.95rem] text-[var(--color-ink)]">
+            <span className="text-[0.95rem] text-[var(--field)]">
               {CATEGORY_LABEL[g.category]}
             </span>
             <span className="measure text-[0.78rem] text-[var(--field-soft)]">

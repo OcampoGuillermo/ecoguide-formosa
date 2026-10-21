@@ -15,9 +15,9 @@ export default function AccesibilidadPage() {
         lead="La app se usa de pie, al sol, con una mano ocupada y a veces sin datos. Eso manda sobre el diseño."
       />
 
-      <div className="measure-wide mt-10 space-y-8 leading-relaxed text-[var(--color-ink)]">
+      <div className="measure-wide mt-10 space-y-8 leading-relaxed text-[var(--field)]">
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--color-ink)]">
+          <h2 className="display text-[1.4rem] text-[var(--field)]">
             Contraste y lectura a plein air
           </h2>
           <p className="mt-3">
@@ -29,7 +29,7 @@ export default function AccesibilidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--color-ink)]">
+          <h2 className="display text-[1.4rem] text-[var(--field)]">
             Teclado y foco
           </h2>
           <p className="mt-3">
@@ -41,7 +41,7 @@ export default function AccesibilidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--color-ink)]">
+          <h2 className="display text-[1.4rem] text-[var(--field)]">
             Movimiento
           </h2>
           <p className="mt-3">
@@ -52,7 +52,7 @@ export default function AccesibilidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--color-ink)]">
+          <h2 className="display text-[1.4rem] text-[var(--field)]">
             Sin conexión
           </h2>
           <p className="mt-3">
@@ -64,7 +64,7 @@ export default function AccesibilidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--color-ink)]">
+          <h2 className="display text-[1.4rem] text-[var(--field)]">
             Idiomas
           </h2>
           <p className="mt-3">

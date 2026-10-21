@@ -53,7 +53,7 @@ export function MapExplorer({
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <div className="flex flex-wrap items-end justify-between gap-4">
-        <h1 className="display-wide text-[clamp(2rem,5vw,3.5rem)] text-[var(--color-ink)]">
+        <h1 className="display-wide text-[clamp(2rem,5vw,3.5rem)] text-[var(--field)]">
           Mapa de la provincia
         </h1>
         <p className="measure text-[0.75rem] text-[var(--field-soft)]">
@@ -75,7 +75,7 @@ export function MapExplorer({
               "stamp transition-colors duration-150",
               category === "TODOS"
                 ? "bg-[var(--color-ink)] text-[var(--color-paper)]"
-                : "text-[var(--field-soft)] hover:text-[var(--color-ink)]",
+                : "text-[var(--field-soft)] hover:text-[var(--field)]",
             )}
           >
             Todas
@@ -90,7 +90,7 @@ export function MapExplorer({
                 "stamp transition-colors duration-150",
                 category === c
                   ? "bg-[var(--color-ink)] text-[var(--color-paper)]"
-                  : "text-[var(--field-soft)] hover:text-[var(--color-ink)]",
+                  : "text-[var(--field-soft)] hover:text-[var(--field)]",
               )}
             >
               <span
@@ -155,7 +155,7 @@ export function MapExplorer({
                       aria-hidden="true"
                     />
                     <span className="min-w-0">
-                      <span className="display block text-[1.2rem] leading-tight text-[var(--color-ink)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
+                      <span className="display block text-[1.2rem] leading-tight text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
                         {point.name}
                       </span>
                       <span className="measure mt-1 block text-[0.68rem] text-[var(--field-soft)]">
@@ -199,7 +199,7 @@ export function MapExplorer({
         <button
           type="button"
           onClick={() => router.push("/escanear")}
-          className="font-semibold text-[var(--color-ink)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+          className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
         >
           Escaneá el código QR
         </button>{" "}

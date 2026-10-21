@@ -38,7 +38,7 @@ export default async function RutasPage() {
               className="group grid gap-5 py-8 transition-colors duration-150 hover:wash md:grid-cols-12 md:items-start md:gap-8"
             >
               <div className="md:col-span-7">
-                <h2 className="display text-[clamp(1.6rem,3.5vw,2.4rem)] leading-tight text-[var(--color-ink)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
+                <h2 className="display text-[clamp(1.6rem,3.5vw,2.4rem)] leading-tight text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
                   {route.name}
                 </h2>
                 <div className="mt-3 flex flex-wrap items-center gap-3">
@@ -65,19 +65,19 @@ export default async function RutasPage() {
                 <dl className="flex flex-wrap gap-x-6 gap-y-2 md:flex-col md:gap-2">
                   <div className="flex gap-2">
                     <dt className="label text-[var(--field-soft)]">Distancia</dt>
-                    <dd className="measure text-[0.78rem] text-[var(--color-ink)]">
+                    <dd className="measure text-[0.78rem] text-[var(--field)]">
                       {formatDistance(route.distance)}
                     </dd>
                   </div>
                   <div className="flex gap-2">
                     <dt className="label text-[var(--field-soft)]">Tiempo</dt>
-                    <dd className="measure text-[0.78rem] text-[var(--color-ink)]">
+                    <dd className="measure text-[0.78rem] text-[var(--field)]">
                       {formatDuration(route.duration)}
                     </dd>
                   </div>
                   <div className="flex gap-2">
                     <dt className="label text-[var(--field-soft)]">Paradas</dt>
-                    <dd className="measure text-[0.78rem] text-[var(--color-ink)]">
+                    <dd className="measure text-[0.78rem] text-[var(--field)]">
                       {route.stops.length}
                     </dd>
                   </div>
@@ -85,7 +85,7 @@ export default async function RutasPage() {
               </div>
 
               <div className="flex items-center gap-2 md:col-span-2 md:justify-end">
-                <span className="inline-flex items-center gap-2 text-[0.9rem] font-semibold text-[var(--color-ink)]">
+                <span className="inline-flex items-center gap-2 text-[0.9rem] font-semibold text-[var(--field)]">
                   Ver el recorrido
                   <ArrowRight
                     className="size-4 transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1"
@@ -99,7 +99,7 @@ export default async function RutasPage() {
       </ul>
 
       <div className="mt-12 border border-[var(--rule-strong)] p-6">
-        <p className="display flex items-center gap-2 text-[1.3rem] text-[var(--color-ink)]">
+        <p className="display flex items-center gap-2 text-[1.3rem] text-[var(--field)]">
           <MapPin className="size-4" aria-hidden="true" />
           Antes de salir
         </p>

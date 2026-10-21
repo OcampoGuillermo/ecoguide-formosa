@@ -51,7 +51,7 @@ export default async function AdminAnalyticsPage() {
 
   return (
     <div>
-      <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+      <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
         Analíticas de visitas
       </h2>
       <p className="mt-3 max-w-2xl leading-relaxed text-[var(--field-soft)]">
@@ -62,7 +62,7 @@ export default async function AdminAnalyticsPage() {
 
       <div className="mt-8 grid gap-10 lg:grid-cols-2">
         <section>
-          <h3 className="display text-[1.3rem] text-[var(--color-ink)]">
+          <h3 className="display text-[1.3rem] text-[var(--field)]">
             Puntos más visitados
           </h3>
           {byPoint.length === 0 ? (
@@ -76,7 +76,7 @@ export default async function AdminAnalyticsPage() {
                 return (
                   <li key={row.pointId}>
                     <div className="flex items-baseline justify-between gap-4">
-                      <span className="text-[0.95rem] text-[var(--color-ink)]">
+                      <span className="text-[0.95rem] text-[var(--field)]">
                         {point?.name ?? "Punto eliminado"}
                         {point && (
                           <span className="measure ml-2 text-[0.68rem] text-[var(--field-soft)]">
@@ -103,13 +103,13 @@ export default async function AdminAnalyticsPage() {
 
         <section className="space-y-10">
           <div>
-            <h3 className="display text-[1.3rem] text-[var(--color-ink)]">
+            <h3 className="display text-[1.3rem] text-[var(--field)]">
               De dónde vienen las visitas
             </h3>
             <dl className="mt-5 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
               {bySource.map((row) => (
                 <div key={row.source} className="flex items-baseline justify-between gap-4 py-3">
-                  <dt className="text-[0.95rem] text-[var(--color-ink)]">
+                  <dt className="text-[0.95rem] text-[var(--field)]">
                     {sourceLabels[row.source] ?? row.source}
                   </dt>
                   <dd className="measure text-[0.9rem] text-[var(--color-rust)]">
@@ -126,7 +126,7 @@ export default async function AdminAnalyticsPage() {
           </div>
 
           <div>
-            <h3 className="display text-[1.3rem] text-[var(--color-ink)]">
+            <h3 className="display text-[1.3rem] text-[var(--field)]">
               Visitas por día
             </h3>
             <p className="measure mt-4 text-[0.78rem] text-[var(--field-soft)]">
@@ -135,7 +135,7 @@ export default async function AdminAnalyticsPage() {
             <ul className="mt-4 max-h-72 space-y-2 overflow-y-auto border-y border-[var(--rule)] py-3">
               {daily.map((row) => (
                 <li key={row.day.toISOString()} className="flex items-baseline justify-between gap-4">
-                  <span className="text-[0.88rem] text-[var(--color-ink)]">
+                  <span className="text-[0.88rem] text-[var(--field)]">
                     {formatDate(row.day)}
                   </span>
                   <span className="measure text-[0.8rem] text-[var(--color-rust)]">

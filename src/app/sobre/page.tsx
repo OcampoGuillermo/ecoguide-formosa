@@ -21,7 +21,7 @@ export default async function SobrePage() {
         lead="Una plataforma de ecoturismo digital para la provincia de Formosa, hecha con y para los guías locales del territorio."
       />
 
-      <div className="measure-wide mt-10 space-y-5 leading-relaxed text-[var(--color-ink)]">
+      <div className="measure-wide mt-10 space-y-5 leading-relaxed text-[var(--field)]">
         <p>
           EcoGuide Formosa reúne en una sola aplicación el mapa de los lugares
           que importan, la voz de quien los conoce y la señalética física del
@@ -52,7 +52,7 @@ export default async function SobrePage() {
         ].map(([label, value]) => (
           <div key={label as string} className="bg-[var(--surface)] p-5">
             <dt className="label text-[var(--field-soft)]">{label}</dt>
-            <dd className="measure mt-2 text-[2rem] leading-none text-[var(--color-ink)]">
+            <dd className="measure mt-2 text-[2rem] leading-none text-[var(--field)]">
               {value}
             </dd>
           </div>
@@ -60,14 +60,14 @@ export default async function SobrePage() {
       </dl>
 
       <div className="mt-12 border border-[var(--rule-strong)] p-6">
-        <p className="display text-[1.3rem] text-[var(--color-ink)]">
+        <p className="display text-[1.3rem] text-[var(--field)]">
           La comunidad
         </p>
         <p className="measure-wide mt-3 leading-relaxed text-[var(--field-soft)]">
           Si sos guía o promotor turístico de la provincia,{" "}
           <Link
             href="/registrarse"
-            className="font-semibold text-[var(--color-ink)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+            className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
           >
             creá tu perfil
           </Link>{" "}

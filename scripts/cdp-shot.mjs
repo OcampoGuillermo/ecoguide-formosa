@@ -108,6 +108,24 @@ await cdp.send("Page.enable", {}, sessionId);
 await cdp.send("Runtime.enable", {}, sessionId);
 await cdp.send("Network.enable", {}, sessionId);
 
+// Modo oscuro: se fija la preferencia antes de que cargue la pagina.
+if (process.argv.includes("--dark")) {
+  const base = new URL(url).origin;
+  await cdp.send("Page.navigate", { url: base + "/" }, sessionId);
+  await sleep(1500);
+  await cdp.send(
+    "Runtime.evaluate",
+    {
+      expression:
+        "localStorage.setItem('ecoguide-theme','dark'); document.documentElement.classList.add('dark'); 'ok'",
+      returnByValue: true,
+    },
+    sessionId,
+  );
+  await sleep(400);
+  console.log("modo: oscuro");
+}
+
 // Login opcional: --login=correo:clave
 const loginArg = process.argv.find((a) => a.startsWith("--login="));
 if (loginArg) {

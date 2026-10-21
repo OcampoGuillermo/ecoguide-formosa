@@ -9,24 +9,21 @@ os.makedirs(OUT, exist_ok=True)
 SIZE = 340
 random.seed(20261021)
 
-# Grano de fibra: ruido gaussiano muy suave, con veta horizontal leve.
+# Grano de fibra con ALFA: el color del fondo (papel en claro, tinta en oscuro)
+# se ve debajo y la textura solo aporta la irregularidad del offset.
 noise = Image.effect_noise((SIZE, SIZE), 26).convert("L").filter(ImageFilter.GaussianBlur(0.6))
 
-paper = Image.new("RGB", (SIZE, SIZE), (234, 222, 192))
+paper = Image.new("RGBA", (SIZE, SIZE), (0, 0, 0, 0))
 px = paper.load()
 np = noise.load()
 
-# Ondas de fibra,wrapped para que sea continuo
 for y in range(SIZE):
     for x in range(SIZE):
         wave = 3.0 * math.sin((x / SIZE) * math.pi * 2 * 3 + 0.7) * math.sin((y / SIZE) * math.pi * 2 * 5)
         d = (np[x, y] - 128) * 0.10 + wave
-        r, g, b = px[x, y]
-        px[x, y] = (
-            max(0, min(255, int(r + d))),
-            max(0, min(255, int(g + d))),
-            max(0, min(255, int(b + d))),
-        )
+        # mas grano donde la fibra sube, menos donde baja
+        alpha = int(max(0, min(38, abs(d) * 7)))
+        px[x, y] = (72, 58, 34, alpha)
 
 paper = paper.filter(ImageFilter.SMOOTH)
 paper.save(os.path.join(OUT, "paper.png"), optimize=True)

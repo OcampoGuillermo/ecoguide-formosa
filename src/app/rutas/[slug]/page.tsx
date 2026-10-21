@@ -71,7 +71,7 @@ export default async function RouteDetailPage({
       </Link>
 
       <header className="mt-8 border-b-2 border-[var(--color-ink)] pb-8">
-        <h1 className="display mt-3 text-[clamp(2.25rem,6vw,4.5rem)] text-[var(--color-ink)]">
+        <h1 className="display mt-3 text-[clamp(2.25rem,6vw,4.5rem)] text-[var(--field)]">
           {route.name}
         </h1>
         {route.description && (
@@ -92,7 +92,7 @@ export default async function RouteDetailPage({
           ].map(([label, value]) => (
             <div key={label}>
               <dt className="label text-[var(--field-soft)]">{label}</dt>
-              <dd className="measure mt-1.5 text-[1.05rem] text-[var(--color-ink)]">
+              <dd className="measure mt-1.5 text-[1.05rem] text-[var(--field)]">
                 {value}
               </dd>
             </div>
@@ -102,7 +102,7 @@ export default async function RouteDetailPage({
 
       <div className="mt-10 grid gap-10 lg:grid-cols-12 lg:gap-14">
         <div className="lg:col-span-7">
-          <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+          <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
             Las paradas
           </h2>
           <ol className="mt-6">
@@ -117,7 +117,7 @@ export default async function RouteDetailPage({
                       href={`/puntos/${stop.point.slug}`}
                       className="group inline-flex items-start gap-2"
                     >
-                      <span className="display text-[1.35rem] leading-tight text-[var(--color-ink)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
+                      <span className="display text-[1.35rem] leading-tight text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
                         {stop.point.name}
                       </span>
                       <MapPin
@@ -153,7 +153,7 @@ export default async function RouteDetailPage({
               <p className="mt-4 text-[0.88rem] leading-relaxed text-[var(--field-soft)]">
                 <Link
                   href="/ingresar"
-                  className="font-semibold text-[var(--color-ink)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+                  className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
                 >
                   Iniciá sesión
                 </Link>{" "}

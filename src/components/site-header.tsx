@@ -48,7 +48,7 @@ export function SiteHeader() {
               priority
             />
             <span className="leading-none">
-              <span className="display block text-[1.35rem] text-[var(--color-ink)]">
+              <span className="display block text-[1.35rem] text-[var(--field)]">
                 {SITE.wordmark}
               </span>
               <span className="label block text-[0.6rem] text-[var(--color-rust)]">
@@ -66,8 +66,8 @@ export function SiteHeader() {
                 className={cn(
                   "label relative py-2 transition-colors duration-150",
                   isActive(item.href)
-                    ? "text-[var(--color-ink)]"
-                    : "text-[var(--field-soft)] hover:text-[var(--color-ink)]",
+                    ? "text-[var(--field)]"
+                    : "text-[var(--field-soft)] hover:text-[var(--field)]",
                 )}
               >
                 {item.label}
@@ -153,7 +153,7 @@ export function SiteHeader() {
                   "display border-b border-[var(--rule)] py-4 text-[2rem]",
                   isActive(item.href)
                     ? "text-[var(--color-rust)]"
-                    : "text-[var(--color-ink)]",
+                    : "text-[var(--field)]",
                 )}
               >
                 {item.label}
@@ -161,7 +161,7 @@ export function SiteHeader() {
             ))}
             <Link
               href="/mis-capsulas"
-              className="display border-b border-[var(--rule)] py-4 text-[2rem] text-[var(--color-ink)]"
+              className="display border-b border-[var(--rule)] py-4 text-[2rem] text-[var(--field)]"
             >
               Mis cápsulas
             </Link>

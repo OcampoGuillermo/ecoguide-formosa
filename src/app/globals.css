@@ -146,6 +146,7 @@
   /* ---- Hoja alzada: la superficie que se imprime ---- */
   .plate {
     background-color: var(--surface);
+    color: var(--field);
     border: 1px solid var(--rule);
     border-radius: var(--radius-plate);
   }

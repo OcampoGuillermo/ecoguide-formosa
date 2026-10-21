@@ -93,7 +93,7 @@ export function LoginForm() {
         ¿Todavía no tenés cuenta?{" "}
         <Link
           href="/registrarse"
-          className="font-semibold text-[var(--color-ink)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+          className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
         >
           Registrate
         </Link>

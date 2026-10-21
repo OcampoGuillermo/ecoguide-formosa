@@ -40,7 +40,7 @@ export function UsersClient({ users }: { users: AdminUser[] }) {
 
   return (
     <div>
-      <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+      <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
         Usuarios y guías
       </h2>
 
@@ -49,7 +49,7 @@ export function UsersClient({ users }: { users: AdminUser[] }) {
           <li key={user.id} className="py-5">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="min-w-0">
-                <p className="flex flex-wrap items-center gap-2 text-[1.1rem] font-semibold text-[var(--color-ink)]">
+                <p className="flex flex-wrap items-center gap-2 text-[1.1rem] font-semibold text-[var(--field)]">
                   {user.name ?? "Sin nombre"}
                   {user.isVerified && (
                     <span className="inline-flex items-center gap-1 text-[0.7rem] font-medium tracking-wide text-[var(--color-turq-2)] uppercase">

@@ -48,9 +48,9 @@ export function RouteProgress({
 
   return (
     <div className="plate p-5">
-      <p className="display text-[1.25rem] text-[var(--color-ink)]">Tu avance</p>
+      <p className="display text-[1.25rem] text-[var(--field)]">Tu avance</p>
       <div className="mt-4 flex items-baseline gap-3">
-        <span className="measure text-[2.25rem] leading-none text-[var(--color-ink)]">
+        <span className="measure text-[2.25rem] leading-none text-[var(--field)]">
           {progress}%
         </span>
         <span className="text-[0.9rem] text-[var(--field-soft)]">
@@ -80,7 +80,7 @@ export function RouteProgress({
                 done
                   ? "border-[var(--color-olive)] text-[var(--color-olive)]"
                   : next
-                    ? "border-[var(--color-rust)] text-[var(--color-ink)] hover:bg-[var(--color-rust)] hover:text-[var(--color-chalk)]"
+                    ? "border-[var(--color-rust)] text-[var(--field)] hover:bg-[var(--color-rust)] hover:text-[var(--color-chalk)]"
                     : "cursor-not-allowed border-[var(--rule)] text-[var(--field-soft)] opacity-60",
               )}
             >

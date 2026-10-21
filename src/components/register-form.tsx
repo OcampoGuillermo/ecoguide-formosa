@@ -147,7 +147,7 @@ export function RegisterForm() {
           className="mt-1 size-4 accent-[var(--color-rust)]"
         />
         <span>
-          <span className="block text-[0.95rem] font-semibold text-[var(--color-ink)]">
+          <span className="block text-[0.95rem] font-semibold text-[var(--field)]">
             Soy guía o promotor turístico
           </span>
           <span className="mt-1 block text-[0.88rem] leading-relaxed text-[var(--field-soft)]">
@@ -177,7 +177,7 @@ export function RegisterForm() {
         ¿Ya tenés cuenta?{" "}
         <Link
           href="/ingresar"
-          className="font-semibold text-[var(--color-ink)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+          className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
         >
           Ingresá
         </Link>

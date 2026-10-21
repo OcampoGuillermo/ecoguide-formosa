@@ -44,7 +44,7 @@ export default async function MisCapsulasPage() {
       />
 
       <section className="mt-10">
-        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
           Enviar una cápsula
         </h2>
         <div className="mt-6">
@@ -53,13 +53,13 @@ export default async function MisCapsulasPage() {
       </section>
 
       <section className="mt-14">
-        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
           Lo que enviaste
         </h2>
 
         {submissions.length === 0 ? (
           <div className="mt-6 border border-dashed border-[var(--rule-strong)] p-10 text-center">
-            <p className="text-[1rem] text-[var(--color-ink)]">
+            <p className="text-[1rem] text-[var(--field)]">
               Todavía no enviaste ninguna cápsula.
             </p>
             <p className="mx-auto mt-2 max-w-md text-[0.9rem] leading-relaxed text-[var(--field-soft)]">
@@ -73,7 +73,7 @@ export default async function MisCapsulasPage() {
               <li key={sub.id} className="py-5">
                 <div className="flex flex-wrap items-start justify-between gap-3">
                   <div className="min-w-0">
-                    <p className="display text-[1.25rem] text-[var(--color-ink)]">
+                    <p className="display text-[1.25rem] text-[var(--field)]">
                       {sub.title}
                     </p>
                     <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
@@ -98,7 +98,7 @@ export default async function MisCapsulasPage() {
           ¿Necesitás otra cosa?{" "}
           <Link
             href="/guias"
-            className="font-semibold text-[var(--color-ink)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+            className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
           >
             Volvé a la comunidad
           </Link>

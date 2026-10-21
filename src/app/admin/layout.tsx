@@ -31,11 +31,11 @@ export default async function AdminLayout({
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-12">
       <div className="flex flex-wrap items-end justify-between gap-6 border-b-2 border-[var(--color-ink)] pb-6">
         <div>
-          <h1 className="display text-[clamp(2rem,5vw,3.25rem)] text-[var(--color-ink)]">
+          <h1 className="display text-[clamp(2rem,5vw,3.25rem)] text-[var(--field)]">
             Panel
           </h1>
         </div>
-        <Link href="/" className="label text-[var(--field-soft)] hover:text-[var(--color-ink)]">
+        <Link href="/" className="label text-[var(--field-soft)] hover:text-[var(--field)]">
           Volver al sitio
         </Link>
       </div>
@@ -45,7 +45,7 @@ export default async function AdminLayout({
           <Link
             key={tab.href}
             href={tab.href}
-            className="label text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--color-ink)]"
+            className="label text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--field)]"
           >
             {tab.label}
           </Link>

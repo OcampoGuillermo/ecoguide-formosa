@@ -157,7 +157,7 @@ export function QrScanner({
       </div>
 
       <div className="plate p-6">
-        <p className="display text-[1.35rem] text-[var(--color-ink)]">
+        <p className="display text-[1.35rem] text-[var(--field)]">
           También podés escribir el código
         </p>
         <p className="mt-2 text-[0.92rem] leading-relaxed text-[var(--field-soft)]">

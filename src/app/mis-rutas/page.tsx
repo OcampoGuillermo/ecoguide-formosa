@@ -44,7 +44,7 @@ export default async function MisRutasPage() {
 
       {runs.length === 0 ? (
         <div className="mt-10 border border-dashed border-[var(--rule-strong)] p-10 text-center">
-          <p className="text-[1rem] text-[var(--color-ink)]">
+          <p className="text-[1rem] text-[var(--field)]">
             Todavía no empezaste ninguna ruta.
           </p>
           <p className="mx-auto mt-2 max-w-md text-[0.9rem] leading-relaxed text-[var(--field-soft)]">
@@ -62,7 +62,7 @@ export default async function MisRutasPage() {
               <div className="flex flex-wrap items-baseline justify-between gap-3">
                 <Link
                   href={`/rutas/${run.route.slug}`}
-                  className="display text-[1.4rem] text-[var(--color-ink)] transition-transform duration-200 ease-[var(--ease-out)] hover:translate-x-1"
+                  className="display text-[1.4rem] text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] hover:translate-x-1"
                 >
                   {run.route.name}
                 </Link>

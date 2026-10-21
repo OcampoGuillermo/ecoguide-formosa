@@ -11,7 +11,7 @@ export default function OfflinePage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-20 text-center sm:px-6 lg:py-28">
       <WifiOff className="mx-auto size-10 text-[var(--color-rust)]" aria-hidden="true" />
-      <h1 className="display mt-7 text-[clamp(2.25rem,6vw,3.5rem)] text-[var(--color-ink)]">
+      <h1 className="display mt-7 text-[clamp(2.25rem,6vw,3.5rem)] text-[var(--field)]">
         Sin conexión
       </h1>
       <p className="measure-wide mx-auto mt-6 leading-relaxed text-[var(--field-soft)]">

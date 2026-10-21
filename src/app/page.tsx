@@ -90,7 +90,7 @@ export default async function HomePage() {
         <div className="h-1.5 w-full bg-[var(--color-ink)]" />
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 pt-12 pb-12 sm:px-6 lg:grid-cols-12 lg:gap-12 lg:px-8 lg:pt-16 lg:pb-14">
           <div className="lg:col-span-8">
-            <h1 className="display text-[clamp(2.75rem,7vw,6rem)] text-[var(--color-ink)]">
+            <h1 className="display text-[clamp(2.75rem,7vw,6rem)] text-[var(--field)]">
               <span className="ink-print block">Turismo Regional</span>
               <span
                 className="ink-mis ink-print block text-[var(--color-rust)]"
@@ -107,7 +107,7 @@ export default async function HomePage() {
               Formosa, provincia del Chaco: doce reservas y parques con sus
               rutas, sus aves y la voz de quien las recorre. El mapa, las
               audioguías y los clips se descargan y funcionan{" "}
-              <strong className="font-semibold text-[var(--color-ink)]">
+              <strong className="font-semibold text-[var(--field)]">
                 sin señal
               </strong>
               , en el lugar y en el sendero.
@@ -215,7 +215,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-4">
-            <h2 className="display-wide text-[clamp(1.9rem,4vw,3rem)] text-[var(--color-ink)]">
+            <h2 className="display-wide text-[clamp(1.9rem,4vw,3rem)] text-[var(--field)]">
               Seis módulos que funcionan en el mismo lugar
             </h2>
             <p className="mt-6 max-w-sm leading-relaxed text-[var(--field-soft)]">
@@ -237,10 +237,10 @@ export default async function HomePage() {
                       style={{ backgroundColor: module.color }}
                       aria-hidden="true"
                     >
-                      <module.icon className="size-5 text-[var(--color-ink)]" />
+                      <module.icon className="size-5 text-[var(--field)]" />
                     </span>
                     <span>
-                      <span className="display block text-[1.4rem] leading-tight text-[var(--color-ink)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
+                      <span className="display block text-[1.4rem] leading-tight text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
                         {module.title}
                       </span>
                       <span className="mt-2 block max-w-xl leading-relaxed text-[var(--field-soft)]">
@@ -265,7 +265,7 @@ export default async function HomePage() {
           <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-5">
-                <h2 className="display-wide text-[clamp(1.9rem,4vw,3rem)] text-[var(--color-ink)]">
+                <h2 className="display-wide text-[clamp(1.9rem,4vw,3rem)] text-[var(--field)]">
                   La voz del lugar, en tres idiomas
                 </h2>
                 <p className="mt-6 leading-relaxed text-[var(--field-soft)]">
@@ -273,7 +273,7 @@ export default async function HomePage() {
                   audioguía de{" "}
                   <Link
                     href={`/puntos/${featurePoint.slug}`}
-                    className="font-semibold text-[var(--color-ink)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+                    className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
                   >
                     {featurePoint.name}
                   </Link>{" "}
@@ -292,7 +292,7 @@ export default async function HomePage() {
                         aria-hidden="true"
                       />
                       <div>
-                        <dt className="text-[0.95rem] font-semibold text-[var(--color-ink)]">
+                        <dt className="text-[0.95rem] font-semibold text-[var(--field)]">
                           {term}
                         </dt>
                         <dd className="text-[0.9rem] text-[var(--field-soft)]">
@@ -325,7 +325,7 @@ export default async function HomePage() {
       {/* ----------------------------------------------------------- Rutas */}
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="flex flex-wrap items-end justify-between gap-6">
-          <h2 className="display-wide max-w-xl text-[clamp(1.9rem,4vw,3rem)] text-[var(--color-ink)]">
+          <h2 className="display-wide max-w-xl text-[clamp(1.9rem,4vw,3rem)] text-[var(--field)]">
             Cinco circuitos para caminar con plan
           </h2>
           <Link
@@ -345,7 +345,7 @@ export default async function HomePage() {
                 className="group plate block h-full p-6 transition-colors duration-150 hover:border-[var(--color-rust)]"
               >
                 <span className="label text-[var(--color-rust)]">{route.theme}</span>
-                <span className="display mt-3 block text-[1.5rem] leading-tight text-[var(--color-ink)]">
+                <span className="display mt-3 block text-[1.5rem] leading-tight text-[var(--field)]">
                   {route.name}
                 </span>
                 <span className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 border-t border-[var(--rule)] pt-4">
@@ -371,7 +371,7 @@ export default async function HomePage() {
             La más corta,{" "}
             <Link
               href={`/rutas/${featuredRoute.slug}`}
-              className="font-semibold text-[var(--color-ink)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+              className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
             >
               {featuredRoute.name}
             </Link>
@@ -441,7 +441,7 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
-            <h2 className="display-wide text-[clamp(2rem,4.5vw,3.5rem)] text-[var(--color-ink)]">
+            <h2 className="display-wide text-[clamp(2rem,4.5vw,3.5rem)] text-[var(--field)]">
               Instalala y andá sin cobertura
             </h2>
             <p className="mt-6 max-w-lg leading-relaxed text-[var(--field-soft)]">
@@ -463,7 +463,7 @@ export default async function HomePage() {
 
           <div className="lg:col-span-5">
             <div className="plate p-6">
-              <h3 className="display text-[1.4rem] text-[var(--color-ink)]">
+              <h3 className="display text-[1.4rem] text-[var(--field)]">
                 Para guías y promotores
               </h3>
               <p className="mt-3 leading-relaxed text-[var(--field-soft)]">

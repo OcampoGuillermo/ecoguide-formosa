@@ -35,7 +35,7 @@ export function ModerationClient({ submissions }: { submissions: AdminSubmission
 
   return (
     <div>
-      <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--color-ink)]">
+      <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
         Moderación de la comunidad
       </h2>
       <p className="mt-3 max-w-2xl leading-relaxed text-[var(--field-soft)]">
@@ -54,7 +54,7 @@ export function ModerationClient({ submissions }: { submissions: AdminSubmission
             <li key={sub.id} className="plate p-5">
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="min-w-0">
-                  <p className="display text-[1.25rem] text-[var(--color-ink)]">
+                  <p className="display text-[1.25rem] text-[var(--field)]">
                     {sub.title}
                   </p>
                   <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
