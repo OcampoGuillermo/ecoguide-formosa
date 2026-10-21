@@ -84,9 +84,7 @@ export function ModerationClient({ submissions }: { submissions: AdminSubmission
               )}
 
               {sub.audioUrl && (
-                <audio controls src={sub.audioUrl} className="mt-4 w-full">
-                  <track kind="captions" />
-                </audio>
+                <audio controls src={sub.audioUrl} className="mt-4 w-full" />
               )}
               {sub.videoUrl && (
                 <video controls src={sub.videoUrl} className="mt-4 w-full max-w-xs" />

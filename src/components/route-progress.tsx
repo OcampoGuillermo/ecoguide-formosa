@@ -50,7 +50,7 @@ export function RouteProgress({
     <div className="plate p-5">
       <p className="display text-[1.25rem] text-[var(--field)]">Tu avance</p>
       <div className="mt-4 flex items-baseline gap-3">
-        <span className="measure text-[2.25rem] leading-none text-[var(--field)]">
+        <span className="measure text-[2rem] leading-none text-[var(--field)]">
           {progress}%
         </span>
         <span className="text-[0.875rem] text-[var(--field-soft)]">

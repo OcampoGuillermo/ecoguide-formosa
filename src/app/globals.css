@@ -515,6 +515,7 @@
   color: var(--color-ink);
   border: 1px solid var(--color-ink);
   border-radius: var(--radius-plate);
+  box-shadow: none;
 }
 
 .leaflet-popup-content {
@@ -526,6 +527,7 @@
 .leaflet-popup-tip {
   background: var(--color-chalk);
   border: 1px solid var(--color-ink);
+  box-shadow: none;
 }
 
 .marker-badge {

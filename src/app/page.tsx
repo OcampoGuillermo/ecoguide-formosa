@@ -63,7 +63,7 @@ const MODULES = [
   {
     icon: Users,
     title: "Comunidad de guías",
-    desc: "Perfiles verificados, especialidades e idiomas. Cada cápsula pasa por moderación antes de publicarse.",
+    desc: "Perfiles con especialidades e idiomas. Cada cápsula pasa por moderación antes de publicarse.",
     href: "/guias",
     color: "var(--color-turq-2)",
   },

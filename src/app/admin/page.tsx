@@ -26,7 +26,7 @@ export default async function AdminDashboard() {
   const cards = [
     { label: "Puntos publicados", value: published, total: points, href: "/admin/puntos" },
     { label: "Rutas", value: routes, href: "/admin/rutas" },
-    { label: "Perfiles de guía", value: guides, total: demoGuides, href: "/admin/usuarios" },
+    { label: "Perfiles de guía", value: guides, href: "/admin/usuarios" },
     { label: "Cápsulas por moderar", value: pending, href: "/admin/moderacion" },
     { label: "Visitas registradas", value: visits, href: "/admin/analiticas" },
     { label: "Eventos", value: events, href: "/admin/analiticas" },
@@ -55,6 +55,13 @@ export default async function AdminDashboard() {
             </Link>
           ))}
         </dl>
+        {demoGuides > 0 && (
+          <p className="mt-4 border-t-2 border-[var(--color-rust)] pt-3 text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
+            Los {demoGuides} perfiles de guía cargados son de demostración: los
+            sube el equipo del programa para mostrar cómo se ve el panel. La
+            verificación se hace a mano desde la pestaña de usuarios.
+          </p>
+        )}
       </section>
 
       <section>

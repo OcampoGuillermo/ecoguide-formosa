@@ -14,7 +14,7 @@ colors:
 typography:
   display:
     fontFamily: "Archivo Variable, Archivo, ui-sans-serif, sans-serif"
-    fontSize: "clamp(2.25rem, 6vw, 7.5rem)"
+    fontSize: "clamp(2.75rem, 7vw, 6rem)"
     fontWeight: 800
     fontVariation: "'wdth' 62"
     lineHeight: 0.88
