@@ -50,18 +50,24 @@
     --action: var(--color-rust);
     --action-ink: var(--color-chalk);
     --surface: var(--color-paper-3);
+    /* Acentos que se usan como texto: cambian con el tema para mantener el
+       contraste minimo sobre el papel (claro) y sobre la tinta (oscuro). */
+    --acento-verificado: var(--color-ink-3);
+    --acento-vivo: #4a5a32;
   }
 
   .dark {
     --sheet: var(--color-ink-2);
     --sheet-raised: var(--color-ink);
     --field: var(--color-paper);
-    --field-soft: color-mix(in oklab, var(--color-paper) 62%, transparent);
+    --field-soft: color-mix(in oklab, var(--color-paper) 72%, transparent);
     --rule: color-mix(in oklab, var(--color-paper) 24%, transparent);
     --rule-strong: color-mix(in oklab, var(--color-paper) 52%, transparent);
     --action: var(--color-rust-2);
     --action-ink: var(--color-chalk);
     --surface: var(--color-ink);
+    --acento-verificado: var(--color-turq);
+    --acento-vivo: #9db06a;
   }
 
   * {

@@ -53,7 +53,7 @@ export default async function GuiasPage() {
                   <h2 className="flex flex-wrap items-center gap-2 text-[1.25rem] font-semibold text-[var(--field)]">
                     {guide.user.name}
                     {guide.isVerified && (
-                      <span className="inline-flex items-center gap-1 text-[0.75rem] font-medium tracking-wide text-[var(--color-turq-2)] uppercase">
+                      <span className="inline-flex items-center gap-1 text-[0.75rem] font-medium tracking-wide text-[var(--acento-verificado)] uppercase">
                         <CheckCircle2 className="size-3.5" aria-hidden="true" />
                         Verificado
                       </span>
@@ -82,7 +82,7 @@ export default async function GuiasPage() {
                   <dt className="label text-[var(--field-soft)]">Especialidades</dt>
                   <dd className="mt-1.5 flex flex-wrap gap-2">
                     {guide.specialties.map((s) => (
-                      <span key={s} className="stamp text-[var(--color-ink-3)]">
+                      <span key={s} className="stamp text-[var(--field-soft)]">
                         {s}
                       </span>
                     ))}

@@ -280,7 +280,7 @@ export default async function PointPage({
               <p className="label text-[var(--field-soft)]">Palabras</p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {point.tags.map((tag) => (
-                  <li key={tag} className="stamp text-[var(--color-ink-3)]">
+                  <li key={tag} className="stamp text-[var(--field-soft)]">
                     {tag}
                   </li>
                 ))}

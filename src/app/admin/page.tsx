@@ -43,7 +43,7 @@ export default async function AdminDashboard() {
             <Link
               key={card.label}
               href={card.href}
-              className="group bg-[var(--surface)] p-5 transition-colors duration-150 hover:bg-[var(--color-paper-3)]"
+              className="group bg-[var(--surface)] p-5 transition-colors duration-150 hover:wash"
             >
               <dt className="label text-[var(--field-soft)]">{card.label}</dt>
               <dd className="measure mt-2 text-[2rem] leading-none text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">

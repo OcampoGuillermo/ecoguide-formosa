@@ -84,7 +84,7 @@ export default async function MisRutasPage() {
                 />
               </div>
               {run.completedAt && (
-                <p className="measure mt-2 text-[0.75rem] text-[var(--color-olive)]">
+                <p className="measure mt-2 text-[0.75rem] text-[var(--acento-vivo)]">
                   Completada
                 </p>
               )}

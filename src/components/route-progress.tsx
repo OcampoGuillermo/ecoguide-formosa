@@ -78,7 +78,7 @@ export function RouteProgress({
               className={cn(
                 "inline-flex items-center gap-2 border px-3 py-2 text-[0.875rem] transition-colors duration-150",
                 done
-                  ? "border-[var(--color-olive)] text-[var(--color-olive)]"
+                  ? "border-[var(--acento-vivo)] text-[var(--acento-vivo)]"
                   : next
                     ? "border-[var(--color-rust)] text-[var(--field)] hover:bg-[var(--color-rust)] hover:text-[var(--color-chalk)]"
                     : "cursor-not-allowed border-[var(--rule)] text-[var(--field-soft)] opacity-60",

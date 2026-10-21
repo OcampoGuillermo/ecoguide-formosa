@@ -230,7 +230,7 @@ export default async function HomePage() {
                 <li key={module.title}>
                   <Link
                     href={module.href}
-                    className="group grid grid-cols-[auto_1fr_auto] items-start gap-4 border-b border-[var(--rule)] py-6 transition-colors duration-150 hover:bg-[var(--color-paper-3)] sm:gap-6"
+                    className="group grid grid-cols-[auto_1fr_auto] items-start gap-4 border-b border-[var(--rule)] py-6 transition-colors duration-150 hover:wash sm:gap-6"
                   >
                     <span
                       className="mt-1 grid size-10 shrink-0 place-items-center"
@@ -261,7 +261,7 @@ export default async function HomePage() {
 
       {/* ------------------------------------------------------ Audioguías */}
       {featurePoint && featuredAudio.length > 0 && (
-        <section className="border-y-2 border-[var(--color-ink)] bg-[var(--color-paper-3)]">
+        <section className="border-y-2 border-[var(--color-ink)] bg-[var(--surface)]">
           <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8 lg:py-28">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
               <div className="lg:col-span-5">
@@ -310,7 +310,7 @@ export default async function HomePage() {
                   {featuredAudio.map((t) => (
                     <span
                       key={t.id}
-                      className="stamp text-[var(--color-ink-3)]"
+                      className="stamp text-[var(--field-soft)]"
                     >
                       {LANGUAGE_LABEL[t.language]}
                     </span>

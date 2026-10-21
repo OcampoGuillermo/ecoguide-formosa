@@ -7,8 +7,8 @@ import type { PointListItem } from "@/lib/queries";
 const MapCanvas = dynamic(() => import("./map-canvas"), {
   ssr: false,
   loading: () => (
-    <div className="grid h-full w-full place-items-center bg-[var(--color-paper-2)]">
-      <p className="label text-[var(--color-ink-3)]">Cargando el mapa…</p>
+    <div className="grid h-full w-full place-items-center bg-[var(--surface)]">
+      <p className="label text-[var(--field-soft)]">Cargando el mapa…</p>
     </div>
   ),
 });
