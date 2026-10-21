@@ -53,7 +53,12 @@ for route in ROUTES:
         body = str(e)
 
     flag = ""
-    if code >= 400:
+    if code == 307:
+        # Redireccion a /ingresar de las rutas protegidas: es lo esperado.
+        flag = "  (protegida)"
+    elif code == 404 and route.startswith("/api/puntos/resolve"):
+        flag = "  (codigo inexistente: correcto)"
+    elif code >= 400:
         flag = "  <-- FALLA"
         bad += 1
     if "Application error" in body or "__next_error__" in body:
