@@ -102,10 +102,10 @@ export function AudioPlayer({
       />
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div className="min-w-0">
-          <p className="display text-[1.35rem] leading-tight text-[var(--field)]">
+          <p className="display text-[1.5rem] leading-tight text-[var(--field)]">
             {track.title}
           </p>
-          <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
+          <p className="measure mt-1 text-[0.75rem] text-[var(--field-soft)]">
             {formatSeconds(duration || track.duration)}
           </p>
         </div>
@@ -190,7 +190,7 @@ export function AudioPlayer({
         <button
           type="button"
           onClick={cycleRate}
-          className="measure ml-1 px-2 py-1.5 text-[0.72rem] text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--field)]"
+          className="measure ml-1 px-2 py-1.5 text-[0.75rem] text-[var(--field-soft)] transition-colors duration-150 hover:text-[var(--field)]"
           aria-label={`Velocidad de reproducción: ${rate} veces`}
         >
           {rate.toString().replace(".", ",")}×
@@ -216,7 +216,7 @@ export function AudioPlayer({
       </div>
 
       {track.voice === "tts" && (
-        <p className="measure mt-3 text-[0.68rem] text-[var(--field-soft)]">
+        <p className="measure mt-3 text-[0.6875rem] text-[var(--field-soft)]">
           Voz sintética de demostración · se reemplaza por la grabación del guía
         </p>
       )}

@@ -110,7 +110,7 @@ export function AdminPointsClient({ points }: { points: AdminPoint[] }) {
                 <p className="display text-[1.25rem] text-[var(--field)]">
                   {point.name}
                 </p>
-                <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
+                <p className="measure mt-1 text-[0.75rem] text-[var(--field-soft)]">
                   {point.slug} · {CATEGORY_LABEL[point.category]} ·{" "}
                   {point.region ?? "—"} · {point.audioCount} audios ·{" "}
                   {point.videoCount} clips
@@ -149,7 +149,7 @@ export function AdminPointsClient({ points }: { points: AdminPoint[] }) {
       </ul>
 
       {points.length === 0 && (
-        <p className="mt-8 border border-dashed border-[var(--rule-strong)] p-8 text-center text-[0.92rem] text-[var(--field-soft)]">
+        <p className="mt-8 border border-dashed border-[var(--rule-strong)] p-8 text-center text-[0.875rem] text-[var(--field-soft)]">
           Todavía no hay puntos cargados.
         </p>
       )}

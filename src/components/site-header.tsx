@@ -48,10 +48,10 @@ export function SiteHeader() {
               priority
             />
             <span className="leading-none">
-              <span className="display block text-[1.35rem] text-[var(--field)]">
+              <span className="display block text-[1.5rem] text-[var(--field)]">
                 {SITE.wordmark}
               </span>
-              <span className="label block text-[0.6rem] text-[var(--color-rust)]">
+              <span className="label block text-[0.6875rem] text-[var(--color-rust)]">
                 {SITE.region}
               </span>
             </span>

@@ -63,7 +63,7 @@ export function SubmissionForm() {
           ).map(([value, label]) => (
             <label
               key={value}
-              className="cursor-pointer border border-[var(--rule-strong)] px-3 py-2 text-[0.85rem] transition-colors duration-150 has-[:checked]:border-[var(--color-ink)] has-[:checked]:bg-[var(--color-ink)] has-[:checked]:text-[var(--color-paper)]"
+              className="cursor-pointer border border-[var(--rule-strong)] px-3 py-2 text-[0.875rem] transition-colors duration-150 has-[:checked]:border-[var(--color-ink)] has-[:checked]:bg-[var(--color-ink)] has-[:checked]:text-[var(--color-paper)]"
             >
               <input
                 type="radio"
@@ -168,7 +168,7 @@ export function SubmissionForm() {
         ) : null}
         Enviar a moderación
       </button>
-      <p className="mt-4 text-[0.85rem] leading-relaxed text-[var(--field-soft)]">
+      <p className="mt-4 text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
         Nada se publica sin revisión técnica. Vas a ver el estado de cada
         envío en esta misma pantalla.
       </p>

@@ -17,7 +17,7 @@ export default function AccesibilidadPage() {
 
       <div className="measure-wide mt-10 space-y-8 leading-relaxed text-[var(--field)]">
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--field)]">
+          <h2 className="display text-[1.5rem] text-[var(--field)]">
             Contraste y lectura a plein air
           </h2>
           <p className="mt-3">
@@ -29,7 +29,7 @@ export default function AccesibilidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--field)]">
+          <h2 className="display text-[1.5rem] text-[var(--field)]">
             Teclado y foco
           </h2>
           <p className="mt-3">
@@ -41,7 +41,7 @@ export default function AccesibilidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--field)]">
+          <h2 className="display text-[1.5rem] text-[var(--field)]">
             Movimiento
           </h2>
           <p className="mt-3">
@@ -52,7 +52,7 @@ export default function AccesibilidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--field)]">
+          <h2 className="display text-[1.5rem] text-[var(--field)]">
             Sin conexión
           </h2>
           <p className="mt-3">
@@ -64,7 +64,7 @@ export default function AccesibilidadPage() {
         </section>
 
         <section>
-          <h2 className="display text-[1.4rem] text-[var(--field)]">
+          <h2 className="display text-[1.5rem] text-[var(--field)]">
             Idiomas
           </h2>
           <p className="mt-3">
@@ -75,7 +75,7 @@ export default function AccesibilidadPage() {
         </section>
       </div>
 
-      <p className="mt-12 text-[0.92rem] text-[var(--field-soft)]">
+      <p className="mt-12 text-[0.875rem] text-[var(--field-soft)]">
         Si encontraste algo que no se puede usar bien, contale al equipo del
         programa: la accesibilidad se corrige, no se documenta.
       </p>

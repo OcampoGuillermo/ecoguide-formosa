@@ -49,7 +49,7 @@ export function UsersClient({ users }: { users: AdminUser[] }) {
           <li key={user.id} className="py-5">
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="min-w-0">
-                <p className="flex flex-wrap items-center gap-2 text-[1.1rem] font-semibold text-[var(--field)]">
+                <p className="flex flex-wrap items-center gap-2 text-[1.125rem] font-semibold text-[var(--field)]">
                   {user.name ?? "Sin nombre"}
                   {user.isVerified && (
                     <span className="inline-flex items-center gap-1 text-[0.7rem] font-medium tracking-wide text-[var(--color-turq-2)] uppercase">
@@ -63,7 +63,7 @@ export function UsersClient({ users }: { users: AdminUser[] }) {
                     </span>
                   )}
                 </p>
-                <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
+                <p className="measure mt-1 text-[0.75rem] text-[var(--field-soft)]">
                   {user.email} · {user.pointsCount} puntos ·{" "}
                   {new Date(user.createdAt).toLocaleDateString("es-AR")}
                 </p>

@@ -103,7 +103,7 @@ export default async function HomePage() {
 
             <div className="rule-strong mt-7 max-w-md" />
 
-            <p className="measure-wide mt-5 max-w-xl text-[1.0625rem] leading-relaxed text-[var(--field-soft)]">
+            <p className="measure-wide mt-5 max-w-xl text-[1.125rem] leading-relaxed text-[var(--field-soft)]">
               Formosa, provincia del Chaco: doce reservas y parques con sus
               rutas, sus aves y la voz de quien las recorre. El mapa, las
               audioguías y los clips se descargan y funcionan{" "}
@@ -148,7 +148,7 @@ export default async function HomePage() {
                   />
                 </div>
               </div>
-              <p className="measure mt-3 text-[0.68rem] text-[var(--field-soft)]">
+              <p className="measure mt-3 text-[0.6875rem] text-[var(--field-soft)]">
                 Sello del proyecto · yacaré, garza y el Bermejo
               </p>
             </div>
@@ -159,7 +159,7 @@ export default async function HomePage() {
       {/* ----------------------------------------------------- El mapa real */}
       <section className="border-b-2 border-[var(--color-ink)] bg-[var(--color-ink)] text-[var(--color-paper)]">
         <div className="mx-auto flex max-w-7xl flex-wrap items-end justify-between gap-6 px-4 pt-10 pb-6 sm:px-6 lg:px-8 lg:pt-12">
-          <h2 className="display-wide max-w-2xl text-[clamp(1.6rem,3.2vw,2.5rem)]">
+          <h2 className="display-wide max-w-2xl text-[clamp(1.75rem,3.2vw,2.5rem)]">
             Doce lugares de la provincia, en el mapa de verdad
           </h2>
           <Link
@@ -192,10 +192,10 @@ export default async function HomePage() {
                       aria-hidden="true"
                     />
                     <span className="min-w-0">
-                      <span className="block truncate text-[0.95rem] font-semibold">
+                      <span className="block truncate text-[1rem] font-semibold">
                         {point.name}
                       </span>
-                      <span className="measure block text-[0.68rem] text-[var(--color-paper)]/55">
+                      <span className="measure block text-[0.6875rem] text-[var(--color-paper)]/55">
                         {point.region} · {CATEGORY_LABEL[point.category]}
                       </span>
                     </span>
@@ -203,7 +203,7 @@ export default async function HomePage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-[0.82rem] leading-relaxed text-[var(--color-paper)]/60">
+            <p className="mt-4 text-[0.875rem] leading-relaxed text-[var(--color-paper)]/60">
               Cada punto lleva su ficha, sus audioguías en tres idiomas y su clip
               vertical. Los tiles quedan cacheados para cuando no hay cobertura.
             </p>
@@ -240,7 +240,7 @@ export default async function HomePage() {
                       <module.icon className="size-5 text-[var(--field)]" />
                     </span>
                     <span>
-                      <span className="display block text-[1.4rem] leading-tight text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
+                      <span className="display block text-[1.5rem] leading-tight text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
                         {module.title}
                       </span>
                       <span className="mt-2 block max-w-xl leading-relaxed text-[var(--field-soft)]">
@@ -292,10 +292,10 @@ export default async function HomePage() {
                         aria-hidden="true"
                       />
                       <div>
-                        <dt className="text-[0.95rem] font-semibold text-[var(--field)]">
+                        <dt className="text-[1rem] font-semibold text-[var(--field)]">
                           {term}
                         </dt>
-                        <dd className="text-[0.9rem] text-[var(--field-soft)]">
+                        <dd className="text-[0.875rem] text-[var(--field-soft)]">
                           {detail}
                         </dd>
                       </div>
@@ -367,7 +367,7 @@ export default async function HomePage() {
         </ul>
 
         {featuredRoute && (
-          <p className="mt-8 text-[0.9rem] text-[var(--field-soft)]">
+          <p className="mt-8 text-[0.875rem] text-[var(--field-soft)]">
             La más corta,{" "}
             <Link
               href={`/rutas/${featuredRoute.slug}`}
@@ -398,7 +398,7 @@ export default async function HomePage() {
             </Link>
           </div>
 
-          <p className="mt-5 max-w-2xl text-[0.9rem] leading-relaxed text-[var(--color-paper)]/60">
+          <p className="mt-5 max-w-2xl text-[0.875rem] leading-relaxed text-[var(--color-paper)]/60">
             Perfiles de demostración: los carga el equipo del programa para
             mostrar cómo se ve la comunidad. Las personas reales aparecen cuando
             comparten su material y el equipo lo verifica.
@@ -408,12 +408,12 @@ export default async function HomePage() {
             {guides.slice(0, 6).map((guide) => (
               <li key={guide.id} className="border-t border-[var(--color-paper)]/25 pt-5">
                 <div className="flex items-center gap-3">
-                  <span className="grid size-11 shrink-0 place-items-center rounded-full border border-[var(--color-paper)]/40 text-[0.9rem] font-semibold">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full border border-[var(--color-paper)]/40 text-[0.875rem] font-semibold">
                     {guide.user.name?.charAt(0) ?? "G"}
                   </span>
                   <span>
                     <span className="flex items-center gap-2">
-                      <span className="text-[1.05rem] font-semibold">
+                      <span className="text-[1rem] font-semibold">
                         {guide.user.name}
                       </span>
                       {guide.isVerified && (
@@ -423,12 +423,12 @@ export default async function HomePage() {
                         />
                       )}
                     </span>
-                    <span className="measure block text-[0.68rem] text-[var(--color-paper)]/55">
+                    <span className="measure block text-[0.6875rem] text-[var(--color-paper)]/55">
                       {guide.specialties.join(" · ")}
                     </span>
                   </span>
                 </div>
-                <p className="mt-4 line-clamp-3 text-[0.9rem] leading-relaxed text-[var(--color-paper)]/70">
+                <p className="mt-4 line-clamp-3 text-[0.875rem] leading-relaxed text-[var(--color-paper)]/70">
                   {guide.bio}
                 </p>
               </li>
@@ -463,7 +463,7 @@ export default async function HomePage() {
 
           <div className="lg:col-span-5">
             <div className="plate p-6">
-              <h3 className="display text-[1.4rem] text-[var(--field)]">
+              <h3 className="display text-[1.5rem] text-[var(--field)]">
                 Para guías y promotores
               </h3>
               <p className="mt-3 leading-relaxed text-[var(--field-soft)]">
@@ -482,7 +482,7 @@ export default async function HomePage() {
                       className="mt-0.5 size-4 shrink-0 text-[var(--color-rust)]"
                       aria-hidden="true"
                     />
-                    <span className="text-[0.95rem]">{item}</span>
+                    <span className="text-[1rem]">{item}</span>
                   </li>
                 ))}
               </ul>

@@ -34,12 +34,12 @@ export default async function AdminRoutesPage() {
         {routes.map((route) => (
           <li key={route.id} className="py-5">
             <p className="display text-[1.25rem] text-[var(--field)]">{route.name}</p>
-            <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
+            <p className="measure mt-1 text-[0.75rem] text-[var(--field-soft)]">
               {route.slug} · {route.theme ?? "—"} ·{" "}
               {route.difficulty ? DIFFICULTY_LABEL[route.difficulty] : "—"} ·{" "}
               {formatDistance(route.distance)} · {formatDuration(route.duration)}
             </p>
-            <p className="measure mt-1.5 text-[0.68rem] text-[var(--field-soft)]">
+            <p className="measure mt-1.5 text-[0.6875rem] text-[var(--field-soft)]">
               {route.stops.map((s) => s.point.slug).join(" → ")}
             </p>
           </li>

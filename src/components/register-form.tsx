@@ -147,10 +147,10 @@ export function RegisterForm() {
           className="mt-1 size-4 accent-[var(--color-rust)]"
         />
         <span>
-          <span className="block text-[0.95rem] font-semibold text-[var(--field)]">
+          <span className="block text-[1rem] font-semibold text-[var(--field)]">
             Soy guía o promotor turístico
           </span>
-          <span className="mt-1 block text-[0.88rem] leading-relaxed text-[var(--field-soft)]">
+          <span className="mt-1 block text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
             Con esto creás un perfil de guía y podés subir audioguías y clips
             para que el equipo los revise antes de publicarlos.
           </span>
@@ -173,7 +173,7 @@ export function RegisterForm() {
         Crear la cuenta
       </button>
 
-      <p className="mt-5 text-[0.88rem] text-[var(--field-soft)]">
+      <p className="mt-5 text-[0.875rem] text-[var(--field-soft)]">
         ¿Ya tenés cuenta?{" "}
         <Link
           href="/ingresar"

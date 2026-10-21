@@ -18,12 +18,12 @@ export function SiteFooter() {
               />
               <span className="leading-none">
                 <span className="display block text-[1.5rem]">{SITE.wordmark}</span>
-                <span className="label block text-[0.6rem] text-[var(--color-sunset)]">
+                <span className="label block text-[0.6875rem] text-[var(--color-sunset)]">
                   {SITE.region}
                 </span>
               </span>
             </Link>
-            <p className="mt-5 max-w-sm text-[0.95rem] leading-relaxed text-[var(--color-paper)]/70">
+            <p className="mt-5 max-w-sm text-[1rem] leading-relaxed text-[var(--color-paper)]/70">
               {SITE.description}
             </p>
             <p className="label mt-6 text-[var(--color-turq)]">{SITE.tagline}</p>
@@ -32,7 +32,7 @@ export function SiteFooter() {
           {FOOTER_NAV.map((group) => (
             <nav key={group.title} className="md:col-span-2">
               <h2 className="label text-[var(--color-sunset)]">{group.title}</h2>
-              <ul className="mt-4 space-y-2.5 text-[0.95rem]">
+              <ul className="mt-4 space-y-2.5 text-[1rem]">
                 {group.links.map((link) => (
                   <li key={link.href}>
                     <Link

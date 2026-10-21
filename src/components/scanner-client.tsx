@@ -31,7 +31,7 @@ export function ScannerClient() {
     <>
       <QrScanner onDetected={handleDetected} />
       {buscando && (
-        <p className="mt-6 text-[0.9rem] text-[var(--field-soft)]" role="status">
+        <p className="mt-6 text-[0.875rem] text-[var(--field-soft)]" role="status">
           Buscando el punto…
         </p>
       )}

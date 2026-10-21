@@ -91,12 +91,12 @@
   :focus-visible {
     outline: 2px solid var(--color-rust);
     outline-offset: 2px;
-    border-radius: 1px;
+    border-radius: var(--radius-plate);
   }
 
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 0.6875rem;
+    height: 0.6875rem;
   }
   ::-webkit-scrollbar-track {
     background: color-mix(in oklab, var(--color-ink) 6%, transparent);
@@ -233,7 +233,7 @@
     min-height: 44px;
     padding: 0 1.25rem;
     font-variation-settings: "wght" 650;
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     border-radius: var(--radius-plate);
     border: 1px solid transparent;
     cursor: pointer;
@@ -294,7 +294,7 @@
     color: var(--field);
     border: 1px solid var(--rule-strong);
     border-radius: var(--radius-plate);
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     transition:
       border-color 160ms var(--ease-out),
       background-color 160ms var(--ease-out);
@@ -317,7 +317,7 @@
     border-top: 2px solid var(--color-rust);
     background-color: color-mix(in oklab, var(--color-rust) 9%, transparent);
     color: var(--color-ink);
-    font-size: 0.9rem;
+    font-size: 0.875rem;
   }
 
   /* ---- Etiqueta de tinta: el sello de estado ---- */
@@ -405,7 +405,7 @@
   @keyframes rise {
     from {
       opacity: 0;
-      transform: translateY(10px);
+      transform: translateY(0.6875rem);
     }
     to {
       opacity: 1;
@@ -506,7 +506,7 @@
 .leaflet-control-attribution {
   background-color: color-mix(in oklab, var(--color-paper) 85%, transparent) !important;
   color: var(--color-ink) !important;
-  font-size: 10px !important;
+  font-size: 0.6875rem !important;
   border-radius: var(--radius-plate) 0 0 0;
 }
 
@@ -520,7 +520,7 @@
 .leaflet-popup-content {
   margin: 0;
   width: 240px !important;
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 
 .leaflet-popup-tip {
@@ -537,7 +537,7 @@
   background: var(--color-ink);
   color: var(--color-paper);
   border: 2px solid var(--color-chalk);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-variation-settings: "wght" 800;
 }
 

@@ -53,7 +53,7 @@ export function RouteProgress({
         <span className="measure text-[2.25rem] leading-none text-[var(--field)]">
           {progress}%
         </span>
-        <span className="text-[0.9rem] text-[var(--field-soft)]">
+        <span className="text-[0.875rem] text-[var(--field-soft)]">
           {reached} de {stops.length} paradas
         </span>
       </div>
@@ -76,7 +76,7 @@ export function RouteProgress({
               disabled={saving || index > reached}
               onClick={() => save(Math.round(((index + 1) / stops.length) * 100))}
               className={cn(
-                "inline-flex items-center gap-2 border px-3 py-2 text-[0.82rem] transition-colors duration-150",
+                "inline-flex items-center gap-2 border px-3 py-2 text-[0.875rem] transition-colors duration-150",
                 done
                   ? "border-[var(--color-olive)] text-[var(--color-olive)]"
                   : next
@@ -96,7 +96,7 @@ export function RouteProgress({
           );
         })}
       </div>
-      <p className="mt-4 text-[0.82rem] text-[var(--field-soft)]">
+      <p className="mt-4 text-[0.875rem] text-[var(--field-soft)]">
         El progreso queda en tu cuenta y se ve desde cualquier dispositivo.
       </p>
     </div>

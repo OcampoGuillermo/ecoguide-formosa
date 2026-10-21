@@ -37,9 +37,9 @@ function popupHtml(point: PointListItem) {
       : point.shortDesc ?? "";
   return `
     <p class="label" style="color:var(--color-rust);margin:0 0 4px">${CATEGORY_LABEL[point.category]}</p>
-    <p style="font-weight:700;font-size:15px;line-height:1.15;margin:0 0 4px;color:var(--color-ink)">${point.name}</p>
+    <p style="font-weight:700;font-size:0.9375rem;line-height:1.15;margin:0 0 4px;color:var(--color-ink)">${point.name}</p>
     ${desc ? `<p style="color:var(--color-ink-3);margin:0 0 6px">${desc}</p>` : ""}
-    <p class="measure" style="font-size:10.5px;color:var(--color-ink-3);margin:0 0 6px">
+    <p class="measure" style="font-size:0.6875rem;color:var(--color-ink-3);margin:0 0 6px">
       ${formatCoordinate(point.latitude, "lat")} &middot; ${formatCoordinate(point.longitude, "lon")}
     </p>
     <a href="/puntos/${point.slug}" class="label" style="color:var(--color-rust);text-decoration:underline">Abrir la ficha</a>
@@ -179,7 +179,7 @@ export default function MapCanvas({
     const marker = L.marker(position ?? [0, 0], {
       icon: L.divIcon({
         className: "",
-        html: '<div class="marker-badge" style="background:var(--color-rust);font-size:10px">YO</div>',
+        html: '<div class="marker-badge" style="background:var(--color-rust);font-size:0.6875rem">YO</div>',
         iconSize: [34, 34],
         iconAnchor: [17, 17],
       }),

@@ -47,7 +47,7 @@ export default async function MisRutasPage() {
           <p className="text-[1rem] text-[var(--field)]">
             Todavía no empezaste ninguna ruta.
           </p>
-          <p className="mx-auto mt-2 max-w-md text-[0.9rem] leading-relaxed text-[var(--field-soft)]">
+          <p className="mx-auto mt-2 max-w-md text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
             Elegí un circuito y marcá las paradas a medida que avanzás. La
             primera queda guardada apenas la empezás.
           </p>
@@ -62,11 +62,11 @@ export default async function MisRutasPage() {
               <div className="flex flex-wrap items-baseline justify-between gap-3">
                 <Link
                   href={`/rutas/${run.route.slug}`}
-                  className="display text-[1.4rem] text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] hover:translate-x-1"
+                  className="display text-[1.5rem] text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] hover:translate-x-1"
                 >
                   {run.route.name}
                 </Link>
-                <span className="measure text-[0.85rem] text-[var(--color-rust)]">
+                <span className="measure text-[0.875rem] text-[var(--color-rust)]">
                   {run.progress}%
                 </span>
               </div>
@@ -84,7 +84,7 @@ export default async function MisRutasPage() {
                 />
               </div>
               {run.completedAt && (
-                <p className="measure mt-2 text-[0.72rem] text-[var(--color-olive)]">
+                <p className="measure mt-2 text-[0.75rem] text-[var(--color-olive)]">
                   Completada
                 </p>
               )}

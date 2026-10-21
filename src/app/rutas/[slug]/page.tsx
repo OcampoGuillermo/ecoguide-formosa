@@ -92,7 +92,7 @@ export default async function RouteDetailPage({
           ].map(([label, value]) => (
             <div key={label}>
               <dt className="label text-[var(--field-soft)]">{label}</dt>
-              <dd className="measure mt-1.5 text-[1.05rem] text-[var(--field)]">
+              <dd className="measure mt-1.5 text-[1rem] text-[var(--field)]">
                 {value}
               </dd>
             </div>
@@ -117,7 +117,7 @@ export default async function RouteDetailPage({
                       href={`/puntos/${stop.point.slug}`}
                       className="group inline-flex items-start gap-2"
                     >
-                      <span className="display text-[1.35rem] leading-tight text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
+                      <span className="display text-[1.5rem] leading-tight text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
                         {stop.point.name}
                       </span>
                       <MapPin
@@ -150,7 +150,7 @@ export default async function RouteDetailPage({
               />
             </div>
             {!session?.user && (
-              <p className="mt-4 text-[0.88rem] leading-relaxed text-[var(--field-soft)]">
+              <p className="mt-4 text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
                 <Link
                   href="/ingresar"
                   className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"

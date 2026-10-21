@@ -79,7 +79,7 @@ export default async function PointPage({
           </h1>
 
           {point.shortDesc && (
-            <p className="measure-wide mt-6 text-[1.1rem] leading-relaxed text-[var(--field-soft)]">
+            <p className="measure-wide mt-6 text-[1.125rem] leading-relaxed text-[var(--field-soft)]">
               {point.shortDesc}
             </p>
           )}
@@ -102,7 +102,7 @@ export default async function PointPage({
           </dl>
 
           {point.address && (
-            <p className="mt-5 text-[0.9rem] text-[var(--field-soft)]">{point.address}</p>
+            <p className="mt-5 text-[0.875rem] text-[var(--field-soft)]">{point.address}</p>
           )}
 
           <div className="measure-wide mt-9 space-y-4 leading-relaxed text-[var(--field)]">
@@ -134,7 +134,7 @@ export default async function PointPage({
             </div>
 
             {point.audioGuides[0]?.narrator && (
-              <p className="mt-4 text-[0.88rem] text-[var(--field-soft)]">
+              <p className="mt-4 text-[0.875rem] text-[var(--field-soft)]">
                 Narrada por{" "}
                 <span className="font-semibold text-[var(--field)]">
                   {point.audioGuides[0].narrator.name}
@@ -176,7 +176,7 @@ export default async function PointPage({
                 <p className="text-[1rem] text-[var(--field)]">
                   Todavía no hay reseñas de este lugar.
                 </p>
-                <p className="mx-auto mt-2 max-w-sm text-[0.92rem] leading-relaxed text-[var(--field-soft)]">
+                <p className="mx-auto mt-2 max-w-sm text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
                   No publicamos calificaciones de ejemplo: la primera reseña la
                   escribe alguien que estuvo ahí.
                 </p>
@@ -213,11 +213,11 @@ export default async function PointPage({
                       {video.title}
                     </p>
                     {video.description && (
-                      <p className="mt-2 text-[0.9rem] leading-relaxed text-[var(--field-soft)]">
+                      <p className="mt-2 text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
                         {video.description}
                       </p>
                     )}
-                    <p className="measure mt-3 text-[0.72rem] text-[var(--field-soft)]">
+                    <p className="measure mt-3 text-[0.75rem] text-[var(--field-soft)]">
                       {Math.round(video.duration)} s &middot; vertical
                     </p>
                   </figcaption>
@@ -226,10 +226,10 @@ export default async function PointPage({
             )}
 
             <div className="plate mt-6 p-5">
-              <p className="display text-[1.15rem] text-[var(--field)]">
+              <p className="display text-[1.125rem] text-[var(--field)]">
                 Señalética del lugar
               </p>
-              <p className="mt-2 text-[0.88rem] leading-relaxed text-[var(--field-soft)]">
+              <p className="mt-2 text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
                 Este es el código que va impreso en el cartel del sendero. El
                 escáner de la app lo reconoce y abre esta misma ficha.
               </p>
@@ -238,7 +238,7 @@ export default async function PointPage({
                   <QrCode value={point.qrCode ?? point.slug} size={132} />
                 </div>
                 <div>
-                  <p className="measure text-[0.72rem] text-[var(--field-soft)]">Código</p>
+                  <p className="measure text-[0.75rem] text-[var(--field-soft)]">Código</p>
                   <p className="measure mt-1 text-[1rem] text-[var(--field)]">
                     {point.qrCode ?? "—"}
                   </p>
@@ -252,7 +252,7 @@ export default async function PointPage({
 
             {routesThrough.length > 0 && (
               <div className="plate mt-6 p-5">
-                <p className="display flex items-center gap-2 text-[1.15rem] text-[var(--field)]">
+                <p className="display flex items-center gap-2 text-[1.125rem] text-[var(--field)]">
                   <RouteIcon className="size-4" aria-hidden="true" />
                   Está en estas rutas
                 </p>
@@ -263,7 +263,7 @@ export default async function PointPage({
                         <span className="block font-semibold text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
                           {route.name}
                         </span>
-                        <span className="measure mt-1 block text-[0.72rem] text-[var(--field-soft)]">
+                        <span className="measure mt-1 block text-[0.75rem] text-[var(--field-soft)]">
                           {formatDistance(route.distance)}
                           {route.difficulty
                             ? ` · ${DIFFICULTY_LABEL[route.difficulty]}`
@@ -295,7 +295,7 @@ export default async function PointPage({
                 height={52}
                 className="rounded-full"
               />
-              <p className="text-[0.85rem] leading-relaxed text-[var(--field-soft)]">
+              <p className="text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
                 Ficha de {SITE.name}. El contenido lo cargan guías de la
                 provincia y pasa por moderación.
               </p>

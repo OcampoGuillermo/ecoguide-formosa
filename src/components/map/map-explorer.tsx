@@ -155,15 +155,15 @@ export function MapExplorer({
                       aria-hidden="true"
                     />
                     <span className="min-w-0">
-                      <span className="display block text-[1.2rem] leading-tight text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
+                      <span className="display block text-[1.25rem] leading-tight text-[var(--field)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
                         {point.name}
                       </span>
-                      <span className="measure mt-1 block text-[0.68rem] text-[var(--field-soft)]">
+                      <span className="measure mt-1 block text-[0.6875rem] text-[var(--field-soft)]">
                         {formatCoordinate(point.latitude, "lat")} ·{" "}
                         {formatCoordinate(point.longitude, "lon")}
                       </span>
                       {point.shortDesc && (
-                        <span className="mt-2 block text-[0.88rem] leading-relaxed text-[var(--field-soft)]">
+                        <span className="mt-2 block text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
                           {point.shortDesc}
                         </span>
                       )}
@@ -174,7 +174,7 @@ export function MapExplorer({
             ))}
             {!filtered.length && (
               <li className="px-1 py-10 text-center">
-                <p className="text-[0.95rem] text-[var(--field-soft)]">
+                <p className="text-[1rem] text-[var(--field-soft)]">
                   No hay puntos con esos filtros.
                 </p>
                 <button
@@ -194,7 +194,7 @@ export function MapExplorer({
         </div>
       </div>
 
-      <p className="mt-6 text-[0.85rem] text-[var(--field-soft)]">
+      <p className="mt-6 text-[0.875rem] text-[var(--field-soft)]">
         ¿Preferís buscar por la señalética del lugar?{" "}
         <button
           type="button"

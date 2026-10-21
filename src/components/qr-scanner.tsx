@@ -124,7 +124,7 @@ export function QrScanner({
                 ) : (
                   <Camera className="mx-auto size-8 text-[var(--color-paper)]/70" aria-hidden="true" />
                 )}
-                <p className="mt-4 text-[0.95rem] leading-relaxed text-[var(--color-paper)]/85">
+                <p className="mt-4 text-[1rem] leading-relaxed text-[var(--color-paper)]/85">
                   {state === "idle" &&
                     "Apuntá la cámara al código de la señalética del sendero."}
                   {state === "found" && "Código leído."}
@@ -157,10 +157,10 @@ export function QrScanner({
       </div>
 
       <div className="plate p-6">
-        <p className="display text-[1.35rem] text-[var(--field)]">
+        <p className="display text-[1.5rem] text-[var(--field)]">
           También podés escribir el código
         </p>
-        <p className="mt-2 text-[0.92rem] leading-relaxed text-[var(--field-soft)]">
+        <p className="mt-2 text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
           Si el cartel está gastado, si no tenés permisos de cámara o si estás en
           el navegador de escritorio, escribí el código que aparece en la
           señalética.

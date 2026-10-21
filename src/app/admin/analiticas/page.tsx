@@ -62,11 +62,11 @@ export default async function AdminAnalyticsPage() {
 
       <div className="mt-8 grid gap-10 lg:grid-cols-2">
         <section>
-          <h3 className="display text-[1.3rem] text-[var(--field)]">
+          <h3 className="display text-[1.25rem] text-[var(--field)]">
             Puntos más visitados
           </h3>
           {byPoint.length === 0 ? (
-            <p className="mt-4 border border-dashed border-[var(--rule-strong)] p-6 text-center text-[0.9rem] text-[var(--field-soft)]">
+            <p className="mt-4 border border-dashed border-[var(--rule-strong)] p-6 text-center text-[0.875rem] text-[var(--field-soft)]">
               Todavía no se registraron visitas en este período.
             </p>
           ) : (
@@ -76,10 +76,10 @@ export default async function AdminAnalyticsPage() {
                 return (
                   <li key={row.pointId}>
                     <div className="flex items-baseline justify-between gap-4">
-                      <span className="text-[0.95rem] text-[var(--field)]">
+                      <span className="text-[1rem] text-[var(--field)]">
                         {point?.name ?? "Punto eliminado"}
                         {point && (
-                          <span className="measure ml-2 text-[0.68rem] text-[var(--field-soft)]">
+                          <span className="measure ml-2 text-[0.6875rem] text-[var(--field-soft)]">
                             {CATEGORY_LABEL[point.category]}
                           </span>
                         )}
@@ -103,22 +103,22 @@ export default async function AdminAnalyticsPage() {
 
         <section className="space-y-10">
           <div>
-            <h3 className="display text-[1.3rem] text-[var(--field)]">
+            <h3 className="display text-[1.25rem] text-[var(--field)]">
               De dónde vienen las visitas
             </h3>
             <dl className="mt-5 divide-y divide-[var(--rule)] border-y border-[var(--rule)]">
               {bySource.map((row) => (
                 <div key={row.source} className="flex items-baseline justify-between gap-4 py-3">
-                  <dt className="text-[0.95rem] text-[var(--field)]">
+                  <dt className="text-[1rem] text-[var(--field)]">
                     {sourceLabels[row.source] ?? row.source}
                   </dt>
-                  <dd className="measure text-[0.9rem] text-[var(--color-rust)]">
+                  <dd className="measure text-[0.875rem] text-[var(--color-rust)]">
                     {row._count._all}
                   </dd>
                 </div>
               ))}
               {bySource.length === 0 && (
-                <p className="py-4 text-[0.9rem] text-[var(--field-soft)]">
+                <p className="py-4 text-[0.875rem] text-[var(--field-soft)]">
                   Sin datos de origen todavía.
                 </p>
               )}
@@ -126,7 +126,7 @@ export default async function AdminAnalyticsPage() {
           </div>
 
           <div>
-            <h3 className="display text-[1.3rem] text-[var(--field)]">
+            <h3 className="display text-[1.25rem] text-[var(--field)]">
               Visitas por día
             </h3>
             <p className="measure mt-4 text-[0.78rem] text-[var(--field-soft)]">
@@ -135,7 +135,7 @@ export default async function AdminAnalyticsPage() {
             <ul className="mt-4 max-h-72 space-y-2 overflow-y-auto border-y border-[var(--rule)] py-3">
               {daily.map((row) => (
                 <li key={row.day.toISOString()} className="flex items-baseline justify-between gap-4">
-                  <span className="text-[0.88rem] text-[var(--field)]">
+                  <span className="text-[0.875rem] text-[var(--field)]">
                     {formatDate(row.day)}
                   </span>
                   <span className="measure text-[0.8rem] text-[var(--color-rust)]">
@@ -144,7 +144,7 @@ export default async function AdminAnalyticsPage() {
                 </li>
               ))}
               {daily.length === 0 && (
-                <li className="py-3 text-[0.9rem] text-[var(--field-soft)]">
+                <li className="py-3 text-[0.875rem] text-[var(--field-soft)]">
                   Todavía no hay visitas registradas.
                 </li>
               )}

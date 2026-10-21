@@ -19,10 +19,12 @@ np = noise.load()
 
 for y in range(SIZE):
     for x in range(SIZE):
-        wave = 3.0 * math.sin((x / SIZE) * math.pi * 2 * 3 + 0.7) * math.sin((y / SIZE) * math.pi * 2 * 5)
-        d = (np[x, y] - 128) * 0.10 + wave
-        # mas grano donde la fibra sube, menos donde baja
-        alpha = int(max(0, min(38, abs(d) * 7)))
+        # fibra irregular: ruido dominante con una veta muy leve
+        wave = 1.1 * math.sin((x / SIZE) * math.pi * 2 * 7 + 0.7) * math.sin(
+            (y / SIZE) * math.pi * 2 * 11
+        )
+        d = (np[x, y] - 128) * 0.16 + wave
+        alpha = int(max(0, min(16, abs(d) * 9)))
         px[x, y] = (72, 58, 34, alpha)
 
 paper = paper.filter(ImageFilter.SMOOTH)

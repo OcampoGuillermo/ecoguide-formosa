@@ -89,7 +89,7 @@ export function LoginForm() {
         Ingresar
       </button>
 
-      <p className="mt-5 text-[0.88rem] text-[var(--field-soft)]">
+      <p className="mt-5 text-[0.875rem] text-[var(--field-soft)]">
         ¿Todavía no tenés cuenta?{" "}
         <Link
           href="/registrarse"

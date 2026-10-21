@@ -105,7 +105,7 @@ export function RouteForm({
             Paradas (slugs separados por coma, en orden)
           </label>
           <input id="r-stops" name="stops" value={values.stops} onChange={set("stops")} className="field measure mt-2" />
-          <p className="measure mt-2 text-[0.68rem] text-[var(--field-soft)]">
+          <p className="measure mt-2 text-[0.6875rem] text-[var(--field-soft)]">
            Disponibles: {pointSlugs.join(", ")}
           </p>
         </div>

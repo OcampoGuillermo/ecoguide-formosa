@@ -60,7 +60,7 @@ export default async function SobrePage() {
       </dl>
 
       <div className="mt-12 border border-[var(--rule-strong)] p-6">
-        <p className="display text-[1.3rem] text-[var(--field)]">
+        <p className="display text-[1.25rem] text-[var(--field)]">
           La comunidad
         </p>
         <p className="measure-wide mt-3 leading-relaxed text-[var(--field-soft)]">

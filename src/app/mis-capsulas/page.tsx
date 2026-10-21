@@ -62,7 +62,7 @@ export default async function MisCapsulasPage() {
             <p className="text-[1rem] text-[var(--field)]">
               Todavía no enviaste ninguna cápsula.
             </p>
-            <p className="mx-auto mt-2 max-w-md text-[0.9rem] leading-relaxed text-[var(--field-soft)]">
+            <p className="mx-auto mt-2 max-w-md text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
               Cuando envíes una, vas a ver acá si está pendiente, aprobada o
               rechazada, con la nota de quien la revisó.
             </p>
@@ -76,7 +76,7 @@ export default async function MisCapsulasPage() {
                     <p className="display text-[1.25rem] text-[var(--field)]">
                       {sub.title}
                     </p>
-                    <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
+                    <p className="measure mt-1 text-[0.75rem] text-[var(--field-soft)]">
                       {sub.kind} · {sub.language} · {formatDate(sub.createdAt)}
                     </p>
                   </div>
@@ -85,7 +85,7 @@ export default async function MisCapsulasPage() {
                   </span>
                 </div>
                 {sub.reviewNote && (
-                  <p className="mt-3 border-t-2 border-[var(--rule-strong)] pt-2 text-[0.88rem] leading-relaxed text-[var(--field-soft)]">
+                  <p className="mt-3 border-t-2 border-[var(--rule-strong)] pt-2 text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
                     {sub.reviewNote}
                   </p>
                 )}
@@ -94,7 +94,7 @@ export default async function MisCapsulasPage() {
           </ul>
         )}
 
-        <p className="mt-8 text-[0.9rem] text-[var(--field-soft)]">
+        <p className="mt-8 text-[0.875rem] text-[var(--field-soft)]">
           ¿Necesitás otra cosa?{" "}
           <Link
             href="/guias"

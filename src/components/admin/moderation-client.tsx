@@ -45,7 +45,7 @@ export function ModerationClient({ submissions }: { submissions: AdminSubmission
       </p>
 
       {submissions.length === 0 ? (
-        <p className="mt-8 border border-dashed border-[var(--rule-strong)] p-8 text-center text-[0.92rem] text-[var(--field-soft)]">
+        <p className="mt-8 border border-dashed border-[var(--rule-strong)] p-8 text-center text-[0.875rem] text-[var(--field-soft)]">
           No hay cápsulas esperando revisión.
         </p>
       ) : (
@@ -57,7 +57,7 @@ export function ModerationClient({ submissions }: { submissions: AdminSubmission
                   <p className="display text-[1.25rem] text-[var(--field)]">
                     {sub.title}
                   </p>
-                  <p className="measure mt-1 text-[0.72rem] text-[var(--field-soft)]">
+                  <p className="measure mt-1 text-[0.75rem] text-[var(--field-soft)]">
                     {sub.author} · {sub.kind} · {LANGUAGE_LABEL[sub.language]} ·{" "}
                     {new Date(sub.createdAt).toLocaleDateString("es-AR")}
                   </p>

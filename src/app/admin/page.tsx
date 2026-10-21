@@ -62,7 +62,7 @@ export default async function AdminDashboard() {
           Últimas cápsulas
         </h2>
         {recent.length === 0 ? (
-          <p className="mt-4 border border-dashed border-[var(--rule-strong)] p-8 text-center text-[0.92rem] text-[var(--field-soft)]">
+          <p className="mt-4 border border-dashed border-[var(--rule-strong)] p-8 text-center text-[0.875rem] text-[var(--field-soft)]">
             Todavía no llegó ninguna cápsula de la comunidad.
           </p>
         ) : (
@@ -108,7 +108,7 @@ async function CategoryBreakdown() {
       {grouped.map((g) => (
         <li key={g.category}>
           <div className="flex items-baseline justify-between gap-4">
-            <span className="text-[0.95rem] text-[var(--field)]">
+            <span className="text-[1rem] text-[var(--field)]">
               {CATEGORY_LABEL[g.category]}
             </span>
             <span className="measure text-[0.78rem] text-[var(--field-soft)]">
