@@ -246,7 +246,7 @@ async function syncAudioDurations() {
 
   for (const guide of guides) {
     const rel = guide.audioUrl.replace(/^\//, "");
-    const abs = path.join(root, rel);
+    const abs = path.join(root, "public", rel);
     try {
       await fs.access(abs);
       const { stdout } = await run("ffprobe", [
@@ -270,7 +270,7 @@ async function syncAudioDurations() {
   // Duracion real de los clips verticales.
   const clips = await prisma.videoContent.findMany();
   for (const clip of clips) {
-    const abs = path.join(root, clip.videoUrl.replace(/^\//, ""));
+    const abs = path.join(root, "public", clip.videoUrl.replace(/^\//, ""));
     try {
       await fs.access(abs);
       const { stdout } = await run("ffprobe", [

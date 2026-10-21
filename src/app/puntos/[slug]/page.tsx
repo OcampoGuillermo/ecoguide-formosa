@@ -46,6 +46,12 @@ export default async function PointPage({
       ? reviews.reduce((s, r) => s + r.rating, 0) / reviews.length
       : null;
 
+  // Una ruta puede pasar varias veces por el mismo punto (bucles): la ficha
+  // lista cada ruta una sola vez.
+  const routesThrough = Array.from(
+    new Map(point.routeStops.map((stop) => [stop.route.slug, stop.route])).values(),
+  );
+
   return (
     <article className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <Link
@@ -232,26 +238,23 @@ export default async function PointPage({
               </div>
             </div>
 
-            {point.routeStops.length > 0 && (
+            {routesThrough.length > 0 && (
               <div className="plate mt-6 p-5">
                 <p className="display flex items-center gap-2 text-[1.15rem] text-[var(--color-ink)]">
                   <RouteIcon className="size-4" aria-hidden="true" />
                   Está en estas rutas
                 </p>
                 <ul className="mt-4 divide-y divide-[var(--rule)]">
-                  {point.routeStops.map((stop) => (
-                    <li key={stop.id} className="py-3">
-                      <Link
-                        href={`/rutas/${stop.route.slug}`}
-                        className="group block"
-                      >
+                  {routesThrough.map((route) => (
+                    <li key={route.slug} className="py-3">
+                      <Link href={`/rutas/${route.slug}`} className="group block">
                         <span className="block font-semibold text-[var(--color-ink)] transition-transform duration-200 ease-[var(--ease-out)] group-hover:translate-x-1">
-                          {stop.route.name}
+                          {route.name}
                         </span>
                         <span className="measure mt-1 block text-[0.72rem] text-[var(--field-soft)]">
-                          {formatDistance(stop.route.distance)}
-                          {stop.route.difficulty
-                            ? ` · ${DIFFICULTY_LABEL[stop.route.difficulty]}`
+                          {formatDistance(route.distance)}
+                          {route.difficulty
+                            ? ` · ${DIFFICULTY_LABEL[route.difficulty]}`
                             : ""}
                         </span>
                       </Link>
