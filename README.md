@@ -67,8 +67,9 @@ NEXT_PUBLIC_APP_URL="http://localhost:3000"
 | Guías | `mariela@ecoguide.formosa` (y 4 más) | `ecoguide-guia-2026` |
 
 > El seed es material de trabajo: las pistas de audio son TTS de demostración
-> (`voice: "tts"`, con la marca visible en el reproductor) y tienen que reemplazarse por
-> las grabaciones reales de los guías antes de publicar.
+> (`voice: "tts"`, con la marca visible en el reproductor), los perfiles de guía
+> vienen marcados como `isDemo` (con un sello "Demostración" en `/guias`) y tienen que
+> reemplazarse por personas y grabaciones reales antes de publicar.
 
 ---
 
@@ -131,14 +132,25 @@ npm run build
 python scripts/check-routes.py   # recorre todas las rutas y reporta estados
 node scripts/cdp-shot.mjs <url> <salida.png> 390 844   # captura con viewport real
 node scripts/cdp-offline.mjs                     # prueba la app sin conexión
+node scripts/cdp-map-diag.mjs <url>              # mide el mapa (tiles, contenedor)
 ```
 
 `scripts/cdp-shot.mjs` usa CDP para emular cualquier viewport (el modo `--window-size`
 de Chrome headless no baja de 504 px) y falla con código 2 si hay desborde horizontal.
+Acepta `--login=correo:clave` para capturar páginas que requieren sesión.
 
 `scripts/cdp-offline.mjs` verifica la promesa central del producto: carga la portada,
 corta la red con `Network.emulateNetworkConditions`, recarga y comprueba que la página
 sigue renderizando desde el service worker.
+
+`scripts/cdp-map-diag.mjs` informa el tamaño del contenedor de Leaflet y la grilla de
+tiles: es la forma rápida de detectar un mapa descuadrado.
+
+### Nota sobre Leaflet
+
+El mapa se arma con Leaflet directo (`src/components/map/map-canvas.tsx`) y **necesita
+`leaflet/dist/leaflet.css` importado en el layout**: sin esa hoja los tiles caen en el
+flujo normal de la página y quedan escalonados en vez de cubrir el contenedor.
 
 ---
 
