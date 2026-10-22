@@ -73,6 +73,12 @@ NEXT_PUBLIC_APP_URL="http://localhost:3000"
 
 ---
 
+## Despliegue
+
+Guía de despliegue y comparativa de planes gratuitos (Vercel, Render, Cloudflare,
+Cloud Run, Oracle) en [DEPLOY.md](DEPLOY.md). El repo trae Dockerfile para los
+hosting con contenedor.
+
 ## Base de datos
 
 Proyecto Neon **`ecoguide-formosa`** (`icy-poetry-20547442`), región `aws-us-east-2`,
