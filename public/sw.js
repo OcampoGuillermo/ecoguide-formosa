@@ -125,7 +125,7 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Navegacion: red primero, y la app shell como respaldo
+  // Navegacion: red primero, y la app shell como respaldo.
   if (request.mode === "navigate") {
     event.respondWith(
       fetch(request).catch(async () => {
@@ -136,18 +136,29 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Resto de recursos estaticos: cache primero
-  event.respondWith(
-    caches.match(request).then(
-      (cached) =>
-        cached ||
-        fetch(request).then((response) => {
-          if (response.ok && url.pathname.startsWith("/_next/static/")) {
-            const copy = response.clone();
-            caches.open(SHELL_CACHE).then((cache) => cache.put(request, copy));
-          }
-          return response;
-        }),
-    ),
-  );
+  // Recursos estaticos: cache primero. Las paginas NO entran aqui: precachear
+  // "/" guardaria una copia sin sesion que se sirve por error a cualquier fetch.
+  const STATIC_PREFIXES = [
+    "/_next/static/",
+    "/icons/",
+    "/media/",
+    "/brand/",
+    "/textures/",
+    "/fonts/",
+  ];
+  if (STATIC_PREFIXES.some((prefix) => url.pathname.startsWith(prefix))) {
+    event.respondWith(
+      caches.match(request).then(
+        (cached) =>
+          cached ||
+          fetch(request).then((response) => {
+            if (response.ok) {
+              const copy = response.clone();
+              caches.open(SHELL_CACHE).then((cache) => cache.put(request, copy));
+            }
+            return response;
+          }),
+      ),
+    );
+  }
 });

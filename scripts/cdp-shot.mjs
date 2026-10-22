@@ -132,8 +132,20 @@ if (loginArg) {
   const [email, password] = loginArg.slice(8).split(":");
   const base = new URL(url).origin;
   await cdp.send("Page.navigate", { url: base + "/" }, sessionId);
-  await sleep(2200);
-  await cdp.send(
+
+  // Se espera a que la pagina este lista: en desarrollo la primera compilacion
+  // puede tardar varios segundos.
+  for (let i = 0; i < 40; i++) {
+    const { result } = await cdp.send(
+      "Runtime.evaluate",
+      { expression: "document.readyState", returnByValue: true },
+      sessionId,
+    );
+    if (result.value === "complete") break;
+    await sleep(500);
+  }
+
+  const login = await cdp.send(
     "Runtime.evaluate",
     {
       expression: `(async () => {
@@ -143,15 +155,15 @@ if (loginArg) {
           headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
           body: new URLSearchParams({ csrfToken, email: ${JSON.stringify(email)}, password: ${JSON.stringify(password)} })
         });
-        return 'ok';
+        const s = await fetch('/api/auth/session').then(r => r.json());
+        return JSON.stringify(s.user ?? null);
       })()`,
       awaitPromise: true,
       returnByValue: true,
     },
     sessionId,
   );
-  await sleep(1200);
-  console.log("sesion iniciada como", email);
+  console.log("sesion:", login.result.value);
 }
 
 await cdp.send("Page.navigate", { url }, sessionId);

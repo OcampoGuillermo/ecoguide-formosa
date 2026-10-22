@@ -6,6 +6,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { Providers } from "@/components/providers";
+import { auth } from "@/lib/auth";
 
 const archivo = localFont({
   src: [{ path: "../fonts/Archivo-Variable.ttf", style: "normal" }],
@@ -90,7 +91,17 @@ const themeScript = `
 })();
 `;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const dynamic = "force-dynamic";
+
+export default async function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  // La sesion se resuelve en el servidor y se pasa al SessionProvider: asi el
+  // encabezado sabe si el visitante es administrador desde el primer dibujo.
+  const session = await auth();
+
   return (
     <html
       lang="es"
@@ -106,7 +117,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
       <body className="min-h-dvh sheet antialiased">
-        <Providers>
+        <Providers session={session}>
           <div className="flex min-h-dvh flex-col">
             <SiteHeader />
             <main className="flex-1">{children}</main>

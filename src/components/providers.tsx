@@ -1,12 +1,19 @@
 "use client";
 
 import { SessionProvider } from "next-auth/react";
+import type { Session } from "next-auth";
 import { Toaster } from "sonner";
 import { ServiceWorkerRegistration } from "@/components/service-worker-registration";
 
-export function Providers({ children }: { children: React.ReactNode }) {
+export function Providers({
+  children,
+  session,
+}: {
+  children: React.ReactNode;
+  session: Session | null;
+}) {
   return (
-    <SessionProvider>
+    <SessionProvider session={session} refetchOnWindowFocus={false}>
       <ServiceWorkerRegistration />
       {children}
       <Toaster

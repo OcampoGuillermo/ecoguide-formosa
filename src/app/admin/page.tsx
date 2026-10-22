@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { formatDateTime } from "@/lib/format";
 import { CATEGORY_LABEL } from "@/lib/constants";
@@ -65,9 +66,20 @@ export default async function AdminDashboard() {
       </section>
 
       <section>
-        <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
-          Últimas cápsulas
-        </h2>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 className="display-wide text-[clamp(1.5rem,3vw,2rem)] text-[var(--field)]">
+            Moderación de la comunidad
+          </h2>
+          <Link
+            href="/admin/moderacion"
+            className="label inline-flex items-center gap-2 border-b-2 border-[var(--color-rust)] pb-1 text-[var(--color-rust)] transition-colors duration-150 hover:bg-[var(--color-rust)] hover:text-[var(--color-chalk)]"
+          >
+            {pending > 0
+              ? `Abrir la cola (${pending} sin revisar)`
+              : "Abrir la cola de moderación"}
+            <ArrowRight className="size-4" aria-hidden="true" />
+          </Link>
+        </div>
         {recent.length === 0 ? (
           <p className="mt-4 border border-dashed border-[var(--rule-strong)] p-8 text-center text-[0.875rem] text-[var(--field-soft)]">
             Todavía no llegó ninguna cápsula de la comunidad.

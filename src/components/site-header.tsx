@@ -96,22 +96,24 @@ export function SiteHeader() {
 
             {session?.user ? (
               <div className="hidden items-center gap-2 md:flex">
-                {session.user.role === "ADMIN" && (
+                {session.user.role === "ADMIN" ? (
                   <Link
                     href="/admin"
                     className="inline-flex items-center gap-2 border border-[var(--color-rust)] px-2.5 py-1.5 text-[0.75rem] font-semibold tracking-[0.08em] uppercase text-[var(--color-rust)] transition-colors duration-150 hover:bg-[var(--color-rust)] hover:text-[var(--color-chalk)]"
+                    title="Panel de administración"
                   >
                     <ShieldCheck className="size-3.5" aria-hidden="true" />
-                    Panel
+                    {session.user.name ?? "Panel"}
+                  </Link>
+                ) : (
+                  <Link
+                    href="/mis-capsulas"
+                    className="inline-flex items-center gap-2 px-2 py-2 text-sm font-medium transition-colors duration-150 hover:text-[var(--color-rust)]"
+                  >
+                    <UserRound className="size-4" aria-hidden="true" />
+                    {session.user.name?.split(" ")[0] ?? "Mi cuenta"}
                   </Link>
                 )}
-                <Link
-                  href="/mis-capsulas"
-                  className="inline-flex items-center gap-2 px-2 py-2 text-sm font-medium transition-colors duration-150 hover:text-[var(--color-rust)]"
-                >
-                  <UserRound className="size-4" aria-hidden="true" />
-                  {session.user.name?.split(" ")[0] ?? "Mi cuenta"}
-                </Link>
                 <button
                   type="button"
                   onClick={() => signOut({ callbackUrl: "/" })}
@@ -168,18 +170,19 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/mis-capsulas"
-              className="display border-b border-[var(--rule)] py-4 text-[2rem] text-[var(--field)]"
-            >
-              Mis cápsulas
-            </Link>
-            {session?.user?.role === "ADMIN" && (
+            {session?.user?.role === "ADMIN" ? (
               <Link
                 href="/admin"
                 className="display border-b border-[var(--rule)] py-4 text-[2rem] text-[var(--color-rust)]"
               >
                 Panel de administración
+              </Link>
+            ) : (
+              <Link
+                href="/mis-capsulas"
+                className="display border-b border-[var(--rule)] py-4 text-[2rem] text-[var(--field)]"
+              >
+                Mis cápsulas
               </Link>
             )}
             <div className="mt-6 flex flex-col gap-3 pb-8">
