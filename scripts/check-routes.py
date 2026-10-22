@@ -3,7 +3,7 @@ import sys
 import urllib.error
 import urllib.request
 
-BASE = "http://localhost:3001"
+BASE = "http://localhost:3000"
 ROUTES = [
     "/",
     "/mapa",
