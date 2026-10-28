@@ -95,19 +95,28 @@ await cdp.send(
 
 // 1. primera carga con red
 await cdp.send("Page.navigate", { url }, sessionId);
-await sleep(5000);
 
-const swState = await cdp.send(
-  "Runtime.evaluate",
-  {
-    expression:
-      "navigator.serviceWorker.getRegistration().then(r => JSON.stringify({ has: !!r, active: !!r?.active }))",
-    awaitPromise: true,
-    returnByValue: true,
-  },
-  sessionId,
-);
+// El service worker tarda en instalar y precachear: se espera a que active
+// en vez de cortar la red a ciegas a los pocos segundos.
+let swState;
+for (let i = 0; i < 30; i++) {
+  await sleep(1000);
+  swState = await cdp.send(
+    "Runtime.evaluate",
+    {
+      expression:
+        "navigator.serviceWorker.getRegistration().then(r => JSON.stringify({ has: !!r, active: !!r?.active, state: r?.active?.state || null }))",
+      awaitPromise: true,
+      returnByValue: true,
+    },
+    sessionId,
+  );
+  if (JSON.parse(swState.result.value).active) break;
+}
 console.log("service worker:", swState.result.value);
+
+// Margen para que termine la precarga del contenido publicado.
+await sleep(6000);
 
 // 2. se corta la red
 await cdp.send(

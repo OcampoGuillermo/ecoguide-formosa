@@ -7,9 +7,16 @@ export function ServiceWorkerRegistration() {
   useEffect(() => {
     if (!("serviceWorker" in navigator)) return;
     const register = () => {
-      navigator.serviceWorker.register("/sw.js", { scope: "/" }).catch(() => {
-        /* el registro falla en desarrollo con http en otro host: no es critico */
-      });
+      navigator.serviceWorker
+        .register("/sw.js", { scope: "/" })
+        .then(() => navigator.serviceWorker.ready)
+        .then((registration) => {
+          // Precarga de fichas y rutas publicadas para el uso sin senal.
+          registration.active?.postMessage({ type: "precache" });
+        })
+        .catch(() => {
+          /* el registro falla en desarrollo con http en otro host: no es critico */
+        });
     };
     if (document.readyState === "complete") register();
     else window.addEventListener("load", register);
