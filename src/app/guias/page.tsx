@@ -23,7 +23,7 @@ export default async function GuiasPage() {
         title="Guías locales"
         lead={
           guides.length === 0
-            ? "Cada audioguía de EcoGuide tiene una voz y una persona. Todavía no hay perfiles publicados: los guías que se registran aparecen acá después de la verificación del equipo."
+            ? "Cada audioguía de EcoGuide tiene una voz y una persona. Todavía no hay perfiles publicados: los guías que se registran aparecen acá y el equipo verifica sus datos después."
             : "Cada audioguía de EcoGuide tiene una voz y una persona. Estos son los guías y promotores que mantienen el contenido de la provincia: sus especialidades, sus idiomas y los puntos donde trabajan."
         }
       />
@@ -52,7 +52,7 @@ export default async function GuiasPage() {
             >
               creá tu cuenta
             </Link>{" "}
-            y tu perfil aparece acá cuando el equipo lo verifica.
+            y tu perfil aparece acá apenas te registrás; el equipo lo verifica después.
           </p>
         </div>
       ) : (
@@ -79,8 +79,13 @@ export default async function GuiasPage() {
                     )}
                   </h2>
                   <p className="measure mt-1 text-[0.75rem] text-[var(--field-soft)]">
-                    {guide.region} · {guide.user._count.points} puntos ·{" "}
-                    {guide.user._count.narrations} narraciones
+                    {[
+                      guide.region,
+                      `${guide.user._count.points} puntos`,
+                      `${guide.user._count.narrations} narraciones`,
+                    ]
+                      .filter(Boolean)
+                      .join(" · ")}
                   </p>
                 </div>
               </div>
