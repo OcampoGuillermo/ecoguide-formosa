@@ -14,10 +14,13 @@ export function SiteHeader() {
   const pathname = usePathname();
   const { data: session } = useSession();
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
+  // Al cambiar de ruta se cierra el menu. Ajustar el estado durante el render
+  // es el patron que recomienda React y evita el render en cascada del efecto.
+  const [lastPath, setLastPath] = useState(pathname);
+  if (pathname !== lastPath) {
+    setLastPath(pathname);
     setOpen(false);
-  }, [pathname]);
+  }
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";

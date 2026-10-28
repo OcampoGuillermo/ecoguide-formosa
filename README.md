@@ -64,12 +64,11 @@ NEXT_PUBLIC_APP_URL="http://localhost:3000"
 | Rol | Correo | Contraseña |
 | --- | --- | --- |
 | Administración | `admin@ecoguide.formosa` | `ecoguide-admin-2026` |
-| Guías | `mariela@ecoguide.formosa` (y 4 más) | `ecoguide-guia-2026` |
 
-> El seed es material de trabajo: las pistas de audio son TTS de demostración
-> (`voice: "tts"`, con la marca visible en el reproductor), los perfiles de guía
-> vienen marcados como `isDemo` (con un sello "Demostración" en `/guias`) y tienen que
-> reemplazarse por personas y grabaciones reales antes de publicar.
+> El seed **no crea perfiles de guía**: cada persona se registra desde
+> `/registrarse` y el equipo verifica su perfil en el panel. Las pistas de audio
+> son TTS de demostración (`voice: "tts"`, con la marca visible en el reproductor)
+> y tienen que reemplazarse por grabaciones reales antes de publicar.
 
 ---
 

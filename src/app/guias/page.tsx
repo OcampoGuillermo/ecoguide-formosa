@@ -21,7 +21,11 @@ export default async function GuiasPage() {
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14">
       <PageHeader
         title="Guías locales"
-        lead="Cada audioguía de EcoGuide tiene una voz y una persona. Estos son los guías y promotores que mantienen el contenido de la provincia: sus especialidades, sus idiomas y los puntos donde trabajan."
+        lead={
+          guides.length === 0
+            ? "Cada audioguía de EcoGuide tiene una voz y una persona. Todavía no hay perfiles publicados: los guías que se registran aparecen acá después de la verificación del equipo."
+            : "Cada audioguía de EcoGuide tiene una voz y una persona. Estos son los guías y promotores que mantienen el contenido de la provincia: sus especialidades, sus idiomas y los puntos donde trabajan."
+        }
       />
 
       {demoCount > 0 && (
@@ -38,7 +42,17 @@ export default async function GuiasPage() {
       {guides.length === 0 ? (
         <div className="mt-10 border border-dashed border-[var(--rule-strong)] p-10 text-center">
           <p className="text-[1rem] text-[var(--field)]">
-            Todavía no hay guías cargados.
+            Todavía no hay perfiles publicados.
+          </p>
+          <p className="measure mx-auto mt-2 text-[0.875rem] leading-relaxed text-[var(--field-soft)]">
+            Si sos guía o promotor de Formosa,{" "}
+            <Link
+              href="/registrarse"
+              className="font-semibold text-[var(--field)] underline decoration-[var(--color-rust)] decoration-2 underline-offset-4"
+            >
+              creá tu cuenta
+            </Link>{" "}
+            y tu perfil aparece acá cuando el equipo lo verifica.
           </p>
         </div>
       ) : (

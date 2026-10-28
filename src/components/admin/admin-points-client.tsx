@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { toast } from "sonner";
-import { Loader2, Plus } from "lucide-react";
-import { savePoint, setPointStatus } from "@/app/admin/actions";
+import { Plus } from "lucide-react";
+import { setPointStatus } from "@/app/admin/actions";
 import { PointForm, type PointFormValues } from "@/components/admin/point-form";
 import { CATEGORY_LABEL } from "@/lib/constants";
 import type { PointCategory, PointStatus } from "@/generated/prisma/enums";

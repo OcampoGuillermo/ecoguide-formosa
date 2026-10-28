@@ -8,6 +8,9 @@ export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    // Se lee el tema aplicado en el documento: es un sistema externo y hay que
+    // reflejarlo recien despues de montar para no romper la hidratacion.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
     setDark(document.documentElement.classList.contains("dark"));
   }, []);

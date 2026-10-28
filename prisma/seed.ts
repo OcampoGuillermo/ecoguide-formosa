@@ -8,7 +8,7 @@ import "dotenv/config";
 import bcrypt from "bcryptjs";
 import { PrismaNeon } from "@prisma/adapter-neon";
 import { PrismaClient } from "../src/generated/prisma/client";
-import { ADMIN, GUIDES, POINTS, ROUTES } from "./data/content";
+import { ADMIN, POINTS, ROUTES } from "./data/content";
 
 const connectionString = process.env.DATABASE_URL;
 if (!connectionString) {
@@ -33,79 +33,11 @@ async function seedAdmin() {
   return user;
 }
 
-async function seedGuides(adminId: string) {
-  const ids: Record<string, string> = {};
-  for (const guide of GUIDES) {
-    const passwordHash = await bcrypt.hash("ecoguide-guia-2026", 10);
-    const user = await prisma.user.upsert({
-      where: { email: guide.email },
-      update: {
-        name: guide.name,
-        role: "GUIDE",
-        passwordHash,
-        profile: {
-          upsert: {
-            create: {
-              bio: guide.bio,
-              phone: guide.whatsapp,
-              whatsapp: guide.whatsapp,
-              instagram: guide.instagram,
-              region: guide.region,
-              languages: guide.languages,
-              specialties: guide.specialties,
-              isVerified: false,
-              isDemo: true,
-              verifiedAt: null,
-            },
-            update: {
-              bio: guide.bio,
-              whatsapp: guide.whatsapp,
-              instagram: guide.instagram,
-              region: guide.region,
-              languages: guide.languages,
-              specialties: guide.specialties,
-              isVerified: false,
-              isDemo: true,
-              verifiedAt: null,
-            },
-          },
-        },
-      },
-      create: {
-        email: guide.email,
-        name: guide.name,
-        role: "GUIDE",
-        passwordHash,
-        profile: {
-          create: {
-            bio: guide.bio,
-            phone: guide.whatsapp,
-            whatsapp: guide.whatsapp,
-            instagram: guide.instagram,
-            region: guide.region,
-            languages: guide.languages,
-            specialties: guide.specialties,
-            isVerified: false,
-            isDemo: true,
-            verifiedAt: null,
-          },
-        },
-      },
-    });
-    ids[guide.email] = user.id;
-  }
-  void adminId;
-  console.log("guias:", Object.keys(ids).length);
-  return ids;
-}
-
-async function seedPoints(guideIds: Record<string, string>) {
-  const guideIdsList = Object.values(guideIds);
+async function seedPoints(authorId: string) {
   let audioCount = 0;
   let videoCount = 0;
 
   for (const point of POINTS) {
-    const author = guideIdsList[POINTS.indexOf(point) % guideIdsList.length];
 
     const created = await prisma.pointOfInterest.upsert({
       where: { slug: point.slug },
@@ -123,7 +55,7 @@ async function seedPoints(guideIds: Record<string, string>) {
         qrCode: point.qrCode,
         status: "PUBLISHED",
         publishedAt: new Date(),
-        createdById: author,
+        createdById: authorId,
       },
       create: {
         slug: point.slug,
@@ -140,7 +72,7 @@ async function seedPoints(guideIds: Record<string, string>) {
         qrCode: point.qrCode,
         status: "PUBLISHED",
         publishedAt: new Date(),
-        createdById: author,
+        createdById: authorId,
       },
     });
 
@@ -156,7 +88,7 @@ async function seedPoints(guideIds: Record<string, string>) {
           audioUrl: `/media/audio/${point.slug}-${audio.language}.mp3`,
           duration: 0,
           voice: "tts",
-          narratorId: author,
+          narratorId: null,
           order: index,
         },
       });
@@ -182,10 +114,8 @@ async function seedPoints(guideIds: Record<string, string>) {
   console.log("puntos:", POINTS.length, "| audioguias:", audioCount, "| clips:", videoCount);
 }
 
-async function seedRoutes(guideIds: Record<string, string>) {
-  const guideIdsList = Object.values(guideIds);
-  for (const [index, route] of ROUTES.entries()) {
-    const author = guideIdsList[index % guideIdsList.length];
+async function seedRoutes(authorId: string) {
+  for (const route of ROUTES) {
     const created = await prisma.route.upsert({
       where: { slug: route.slug },
       update: {
@@ -196,7 +126,7 @@ async function seedRoutes(guideIds: Record<string, string>) {
         difficulty: route.difficulty,
         theme: route.theme,
         isPublic: true,
-        createdById: author,
+        createdById: authorId,
       },
       create: {
         slug: route.slug,
@@ -207,7 +137,7 @@ async function seedRoutes(guideIds: Record<string, string>) {
         difficulty: route.difficulty,
         theme: route.theme,
         isPublic: true,
-        createdById: author,
+        createdById: authorId,
       },
     });
 
@@ -225,11 +155,45 @@ async function seedRoutes(guideIds: Record<string, string>) {
   console.log("rutas:", ROUTES.length);
 }
 
+/**
+ * Retira los perfiles de demostracion que sembraban las versiones anteriores.
+ * El contenido que firmaban pasa al equipo del programa, las audioguias TTS
+ * quedan sin narrador (no tienen una voz real) y las capsulas de esas cuentas
+ * se borran: eran material de demostracion.
+ */
+async function removeDemoGuides(adminId: string) {
+  const demo = await prisma.user.findMany({
+    where: { profile: { isDemo: true } },
+    select: { id: true, email: true },
+  });
+  if (demo.length === 0) return;
+
+  const ids = demo.map((user) => user.id);
+  await prisma.$transaction([
+    prisma.pointOfInterest.updateMany({
+      where: { createdById: { in: ids } },
+      data: { createdById: adminId },
+    }),
+    prisma.route.updateMany({
+      where: { createdById: { in: ids } },
+      data: { createdById: adminId },
+    }),
+    prisma.audioGuide.updateMany({
+      where: { narratorId: { in: ids } },
+      data: { narratorId: null },
+    }),
+    prisma.contentSubmission.deleteMany({ where: { authorId: { in: ids } } }),
+    prisma.user.deleteMany({ where: { id: { in: ids } } }),
+  ]);
+
+  console.log("perfiles demo eliminados:", demo.length);
+}
+
 async function main() {
   const admin = await seedAdmin();
-  const guideIds = await seedGuides(admin.id);
-  await seedPoints(guideIds);
-  await seedRoutes(guideIds);
+  await seedPoints(admin.id);
+  await seedRoutes(admin.id);
+  await removeDemoGuides(admin.id);
 
   // Duracion real de las pistas de audio, medida sobre el archivo generado.
   await syncAudioDurations();

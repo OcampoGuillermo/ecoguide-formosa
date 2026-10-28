@@ -6,8 +6,7 @@
  */
 import { spawn } from "node:child_process";
 import { tmpdir } from "node:os";
-import { resolve, dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 
 const CHROME = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe";
 const url = process.argv[2] || "http://localhost:3001/mapa";
@@ -54,7 +53,8 @@ class Cdp {
       if (msg.id && this.pending.has(msg.id)) {
         const { resolve: res, reject } = this.pending.get(msg.id);
         this.pending.delete(msg.id);
-        msg.error ? reject(new Error(JSON.stringify(msg.error))) : res(msg.result);
+        if (msg.error) reject(new Error(JSON.stringify(msg.error)));
+        else res(msg.result);
       }
     });
   }

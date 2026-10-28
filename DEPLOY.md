@@ -160,9 +160,10 @@ En Cloud Run: `gcloud run deploy --source . --set-env-vars-file .env --port 3000
 ## 6. Lo que conviene revisar antes de un lanzamiento real
 
 1. **El audio es TTS de demostración.** Hay que reemplazarlo por las
-   grabaciones de los guías; la interfaz ya lo marca.
-2. **Los perfiles de guía del seed son de demostración** (`isDemo`), con sello
-   visible. No hay que publicarlos como reales.
+   grabaciones de los guías; la interfaz ya lo marca y las pistas no tienen
+   narrador asignado.
+2. **Los perfiles de guía ya no son de demostración**: el seed no crea ninguno y
+   los cinco que había se retiraron. Los reales se registran y se verifican a mano.
 3. **Las distancias de las rutas** son del seed y hay que ajustarlas al terreno.
 4. **El panel es real** pero la verificación de guías es manual: decidan quién
    verifica a quién antes de abrirlo al público.

@@ -66,7 +66,9 @@ export default function MapCanvas({
   const mapRef = useRef<L.Map | null>(null);
   const markersRef = useRef<Map<string, L.Marker>>(new Map());
   const onSelectRef = useRef(onSelect);
-  onSelectRef.current = onSelect;
+  useEffect(() => {
+    onSelectRef.current = onSelect;
+  }, [onSelect]);
 
   const [position, setPosition] = useState<[number, number] | null>(null);
   const [locating, setLocating] = useState(false);
@@ -84,7 +86,7 @@ export default function MapCanvas({
     });
     mapRef.current = map;
 
-    const tiles = L.tileLayer(TILE_URL, { attribution: ATTRIBUTION, maxZoom: 18 }).addTo(map);
+    L.tileLayer(TILE_URL, { attribution: ATTRIBUTION, maxZoom: 18 }).addTo(map);
 
     const markers = new Map<string, L.Marker>();
     for (const point of points) {

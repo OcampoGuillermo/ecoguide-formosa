@@ -56,6 +56,7 @@ export async function POST(request: Request) {
               create: {
                 languages: ["ES"],
                 specialties: [],
+                region: region || null,
                 whatsapp: whatsapp || null,
               },
             },
