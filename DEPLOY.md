@@ -9,6 +9,7 @@
 | Dominio de producción | `ecoguide-formosa-one.vercel.app` (el nombre sin sufijo ya estaba tomado en Vercel) |
 | Node en Vercel | 24.x |
 | Región | `iad1` |
+| Auto-deploy | Sí: cada push a `main` de `OcampoGuillermo/ecoguide-formosa` dispara el deploy de producción |
 
 `NEXTAUTH_URL` y `NEXT_PUBLIC_APP_URL` deben apuntar siempre a la URL pública
 vigente: la segunda se incrusta en el build, así que cambiarla exige redesplegar.
@@ -109,6 +110,10 @@ npm i -g vercel
 vercel            # preview
 vercel --prod     # produccion
 ```
+
+El proyecto ya está vinculado al repo: **un push a `main` despliega solo** y
+actualiza el dominio de producción. `vercel --prod` queda para forzar un deploy
+desde la máquina local sin pasar por GitHub.
 
 O desde el panel: **New Project → importar el repo →** en *Environment Variables*:
 
