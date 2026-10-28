@@ -1,5 +1,20 @@
 # Despliegue de EcoGuide Formosa
 
+## Despliegue actual
+
+| Dato | Valor |
+| --- | --- |
+| URL pública | **https://ecoguide-formosa-one.vercel.app** |
+| Proyecto Vercel | `guillermo123/ecoguide-formosa` |
+| Dominio de producción | `ecoguide-formosa-one.vercel.app` (el nombre sin sufijo ya estaba tomado en Vercel) |
+| Node en Vercel | 24.x |
+| Región | `iad1` |
+
+`NEXTAUTH_URL` y `NEXT_PUBLIC_APP_URL` deben apuntar siempre a la URL pública
+vigente: la segunda se incrusta en el build, así que cambiarla exige redesplegar.
+
+---
+
 La app es **Next.js 16 (App Router) + Node 22 + Prisma 7 + Neon Postgres**, con
 service worker propio (PWA instalable). Cualquier hosting que corra Node 22 con
 un dominio HTTPS sirve la app sin cambios de código.
@@ -117,6 +132,9 @@ NEXT_PUBLIC_APP_URL = https://<tu-dominio>
 ### Notas de la PWA
 - El service worker (`public/sw.js`) se sirve como archivo estático: no necesita
   configuración especial, pero sí HTTPS.
+- La primera visita necesita unos segundos de red: el SW se instala, precachea el
+  shell y después pide `/api/precache` para guardar fichas y rutas publicadas.
+  Conviene abrir la app una vez con conexión antes de salir al campo.
 - En el primer deploy, la web se instala sola. Los usuarios la agregan desde el
   navegador ("Añadir a la pantalla de inicio").
 - La cámara del escáner QR necesita **HTTPS** o `localhost`. En un dominio de

@@ -42,3 +42,6 @@ Thumbs.db
 .impeccable/palette-raw.json
 .impeccable/audio-plan.json
 .impeccable/video-plan.json
+
+.vercel
+.env*

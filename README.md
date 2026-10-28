@@ -75,6 +75,9 @@ NEXT_PUBLIC_APP_URL="http://localhost:3000"
 
 ## Despliegue
 
+**En producción:** <https://ecoguide-formosa-one.vercel.app> (Vercel, proyecto
+`guillermo123/ecoguide-formosa`).
+
 Guía de despliegue y comparativa de planes gratuitos (Vercel, Render, Cloudflare,
 Cloud Run, Oracle) en [DEPLOY.md](DEPLOY.md). El repo trae Dockerfile para los
 hosting con contenedor.
@@ -136,8 +139,10 @@ npm run typecheck      # tsc --noEmit
 npm run lint
 npm run build
 python scripts/check-routes.py   # recorre todas las rutas y reporta estados
+python scripts/check-routes.py https://ecoguide-formosa-one.vercel.app   # lo mismo contra producción
 node scripts/cdp-shot.mjs <url> <salida.png> 390 844   # captura con viewport real
 node scripts/cdp-offline.mjs                     # prueba la app sin conexión
+node scripts/offline-local.mjs                   # offline real: apaga el servidor y abre una ficha nunca visitada
 node scripts/cdp-map-diag.mjs <url>              # mide el mapa (tiles, contenedor)
 ```
 
@@ -145,9 +150,14 @@ node scripts/cdp-map-diag.mjs <url>              # mide el mapa (tiles, contened
 de Chrome headless no baja de 504 px) y falla con código 2 si hay desborde horizontal.
 Acepta `--login=correo:clave` para capturar páginas que requieren sesión.
 
-`scripts/cdp-offline.mjs` verifica la promesa central del producto: carga la portada,
-corta la red con `Network.emulateNetworkConditions`, recarga y comprueba que la página
-sigue renderizando desde el service worker.
+`scripts/cdp-offline.mjs` carga la portada, corta la red con
+`Network.emulateNetworkConditions`, recarga y comprueba que la página sigue
+renderizando. **Ojo:** la emulación de red de CDP no alcanza al service worker
+(corre en otro target), así que puede dar un falso positivo.
+
+`scripts/offline-local.mjs` es la prueba concluyente: levanta el build, espera la
+precarga, **apaga el servidor** y abre una ficha que nunca se visitó. Si renderiza,
+la app funciona sin red de verdad.
 
 `scripts/cdp-map-diag.mjs` informa el tamaño del contenedor de Leaflet y la grilla de
 tiles: es la forma rápida de detectar un mapa descuadrado.
@@ -164,10 +174,15 @@ flujo normal de la página y quedan escalonados en vez de cubrir el contenedor.
 
 `public/manifest.webmanifest` + `public/sw.js`:
 
-- El shell, el mapa y los medios se cachean para servir sin señal.
+- El shell se precachea al instalar y, al activarse, el SW pide `/api/precache`
+  para guardar **todas las fichas de puntos publicados y las rutas públicas**:
+  el visitante puede abrir cualquier punto sin señal aunque no lo haya visitado.
+- Las páginas que se navegan quedan cacheadas (*network-first* con respaldo);
+  las de sesión (`/admin`, `/mis-rutas`, `/mis-capsulas`, ingreso y registro)
+  se excluyen para no servirle a otra persona una vista con datos ajenos.
 - Los tiles de OpenStreetMap usan *stale-while-revalidate*.
 - Las APIs usan *network-first* con respaldo en caché.
-- La navegación cae en `/offline` cuando no hay red.
+- La navegación cae en `/offline` cuando no hay red ni copia local.
 - El registro del service worker vive en `src/components/service-worker-registration.tsx`.
 
 ---
